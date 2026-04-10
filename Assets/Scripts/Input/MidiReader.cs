@@ -16,7 +16,7 @@ namespace Input
             var midiDevice = device as Minis.MidiDevice;
             if (midiDevice == null) return;
 
-            Debug.Log($"MIDI Device {change} ({device.description.product})");
+            // Debug.Log($"MIDI Device {change} ({device.description.product})");
 
             DisconnectAllDevices();
             ConnectAllDevices();
@@ -56,8 +56,10 @@ namespace Input
                          $"Pressure {pressure * 100,3:0}%");
 
         void OnWillControlChange(Minis.MidiValueControl cc, float value)
-            => Debug.Log($"Ch.{cc.channel,-2} " +
-                         $"CC ({cc.controlNumber:000}) {value * 100,3:0}%");
+        {
+            // Debug.Log($"Ch.{cc.channel,-2} " +
+            //           $"CC ({cc.controlNumber:000}) {value * 100,3:0}%");
+        }
 
         #endregion
 
