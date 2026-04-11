@@ -7,7 +7,6 @@ namespace Input
 {
     public class MidiReader : MonoBehaviour
     {
-        public ModuleManager ModuleManager { get; set; }
         [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
 
         #region Callback implementation
@@ -28,7 +27,6 @@ namespace Input
             EngineButton engineButton = new EngineButton(note.noteNumber);
 
             _engineButtonPressEmitter.OnPress?.Invoke(engineButton);
-            ModuleManager.Tick(engineButton);
 
             // Debug.Log($"Clicked button {engineButton.ButtonIndex}.\n" +
             //           $"{engineButton.InSectionIndex} in {DashboardLayout.Sections[engineButton.SectionIndex]}");
@@ -95,7 +93,6 @@ namespace Input
 
         void Start()
         {
-            ModuleManager = FindAnyObjectByType<ModuleManager>();
             InputSystem.onDeviceChange += OnDeviceChange;
             ConnectAllDevices();
         }
