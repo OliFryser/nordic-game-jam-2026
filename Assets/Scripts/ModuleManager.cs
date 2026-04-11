@@ -10,13 +10,13 @@ public class ModuleManager : MonoBehaviour
     [SerializeField] private List<Sequence> Sequences = 
         new()
         {
-            new Sequence("Lights", new int[]{ 0, 1, 5 }),
-            new Sequence("Engine", new int[]{ 0, 3, 5 }),
+            new Sequence(DashboardLayout.GetSectionStartFromName("Lights"), new int[]{ 0, 1, 5 }),
+            new Sequence(DashboardLayout.GetSectionStartFromName("Lights"), new int[]{ 0, 3, 5 }),
         };
 
     public void Start()
     {
-        Sequences[ModuleIndex].PrintSequence();
+        Sequences[ModuleIndex].PrintRemainingSequence();
     }
     
     public void Tick(EngineButton engineButton)
@@ -27,6 +27,7 @@ public class ModuleManager : MonoBehaviour
         if (currentModule.IsCompleted)
         {
             ModuleIndex++;
+            Debug.Log($"Module Complete");
         }
         else
         {

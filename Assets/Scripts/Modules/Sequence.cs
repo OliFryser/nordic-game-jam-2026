@@ -1,5 +1,5 @@
 using System;
-using Input;
+using System.Linq;
 using UnityEngine;
 
 namespace Modules
@@ -7,61 +7,39 @@ namespace Modules
     [Serializable]
     public class Sequence
     {
-        public int StartingIndex => DashboardLayout.GetSectionStartFromName(SectionName);
-        
-        public int[] _relativeIndices;
+        public int[] _sequenceNumbers;
+        private int SequenceProgress { get; set; }
 
-        private int SequenceProgress
-        {
-            get; 
-            set;
-        }
-
-        public bool IsCompleted => SequenceProgress == _relativeIndices.Length;
-        public string SectionName { get; set; }
+        public bool IsCompleted => SequenceProgress == _sequenceNumbers.Length;
         
-        public Sequence(string section, int[] relativeIndices)
+        public Sequence(int startIndex, int[] sequenceNumbers)
         {
-            SectionName = section;
             SequenceProgress = 0;
-            _relativeIndices = relativeIndices;
-        }
-
-
-        public void PrintSequence()
-        {
-            string sequence = $"Enter sequence in {SectionName}: ";
-            foreach (var relativeIndex in _relativeIndices)
-            {
-                sequence += $"{relativeIndex} ";
-            }
-            Debug.Log(sequence);
+            _sequenceNumbers = sequenceNumbers.Select(s => s + startIndex).ToArray();
         }
 
         public void PrintRemainingSequence()
         {
-            string sequence = $"Enter sequence in {SectionName}: ";
-            for (int i = SequenceProgress; i < _relativeIndices.Length; i++)
+            string sequence = $"Enter sequence: ";
+            for (int i = SequenceProgress; i < _sequenceNumbers.Length; i++)
             {
-                sequence += $"{_relativeIndices[i]} ";
+                sequence += $"{_sequenceNumbers[i]} ";
             }
             Debug.Log(sequence);
         }
 
-        public void EnterInSequence(int index)
+        public void EnterInSequence(int number)
         {
-            if (IsCompleted)
+            if (number == _sequenceNumbers[SequenceProgress])
             {
-                Debug.Log("Sequence is completed");
-                return;
+                SequenceProgress++;
             }
-            
-            int currentRequest = StartingIndex + _relativeIndices[SequenceProgress];
-            Debug.Log("Current Request: " + currentRequest + " Current input index: " + index);
-            if (currentRequest == index)
+            // Player pressed first combination
+            else if (number == _sequenceNumbers[0])
             {
-                SequenceProgress += 1;
+                SequenceProgress = 1;
             }
+            // Restart sequence
             else
             {
                 SequenceProgress = 0;

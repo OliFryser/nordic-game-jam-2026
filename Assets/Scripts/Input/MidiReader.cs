@@ -28,7 +28,8 @@ namespace Input
 
             ModuleManager.Tick(engineButton);
             
-            Debug.Log($"Clicked button {engineButton.InSectionIndex} in {DashboardLayout.Sections[engineButton.SectionIndex]}");
+            // Debug.Log($"Clicked button {engineButton.ButtonIndex}.\n" +
+            //           $"{engineButton.InSectionIndex} in {DashboardLayout.Sections[engineButton.SectionIndex]}");
         }
 
         void OnWillNoteOff(Minis.MidiNoteControl note)
