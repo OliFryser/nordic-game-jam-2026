@@ -2,7 +2,7 @@ namespace Input
 {
     public enum DashboardSection
     {
-        Lights,
-        Hydraulics,
+        Lights = 0,
+        Hydraulics = 1,
     }
 }

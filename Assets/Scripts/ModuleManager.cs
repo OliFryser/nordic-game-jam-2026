@@ -7,21 +7,21 @@ public class ModuleManager : MonoBehaviour
 {
     private int ModuleIndex { get; set; } = 0;
     
-    [SerializeField] private List<Sequence> Sequences = 
+    [SerializeField] private List<Sequence> _sequences = 
         new()
         {
-            new Sequence(DashboardLayout.GetSectionStartFromName(DashboardSection.Lights), new int[]{ 0, 1, 5 }),
-            new Sequence(DashboardLayout.GetSectionStartFromName(DashboardSection.Lights), new int[]{ 0, 3, 5 }),
+            new Sequence(DashboardSection.Lights, new int[]{ 0, 1, 5 }),
+            new Sequence(DashboardSection.Lights, new int[]{ 0, 3, 5 }),
         };
 
     public void Start()
     {
-        Sequences[ModuleIndex].PrintRemainingSequence();
+        _sequences[ModuleIndex].PrintRemainingSequence();
     }
     
     public void Tick(EngineButton engineButton)
     {
-        var currentModule = Sequences[ModuleIndex];
+        var currentModule = _sequences[ModuleIndex];
         currentModule.EnterInSequence(engineButton.ButtonIndex);
 
         if (currentModule.IsCompleted)
@@ -34,7 +34,7 @@ public class ModuleManager : MonoBehaviour
             currentModule.PrintRemainingSequence();
         }
 
-        if (ModuleIndex >= Sequences.Count)
+        if (ModuleIndex >= _sequences.Count)
         {
             Debug.Log($"All Puzzles Completed");
         }
