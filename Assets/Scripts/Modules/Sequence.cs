@@ -1,71 +1,37 @@
 using System;
-using Input;
-using UnityEngine;
-using UnityEngine.Events;
 
 namespace Modules
 {
-    [Serializable]
     public class Sequence
     {
-        [SerializeField]
-        private DashboardSection _dashboardSection;
-        [SerializeField] private int[] _relativeSequenceNumbers;
-
-        public int[] RelativeSequenceNumbers => _relativeSequenceNumbers; 
-        public int Length => RelativeSequenceNumbers.Length;
-        private int SequenceProgress { get; set; }
+        public  int[] Numbers { get; }
+        private int _index;
+        public Action OnComplete;
         
-        private Action OnSequenceComplete { get; set; }
-        
-        
-        public Sequence(DashboardSection section, int[] sequenceNumbers)
+        public Sequence(int[] numbers)
         {
-            SequenceProgress = 0;
-            _relativeSequenceNumbers = sequenceNumbers;
+            Numbers = numbers;
         }
 
-        public void PrintRemainingSequence()
+        public void Enter(int input)
         {
-            string sequence = "Enter sequence: ";
-            for (int i = SequenceProgress; i < RelativeSequenceNumbers.Length; i++)
+            if (input == Numbers[_index])
             {
-                sequence += $"{RelativeSequenceNumbers[i]} ";
+                _index++;
             }
-            Debug.Log(sequence);
-        }
-
-        public void EnterInSequence(int number)
-        {
-            int targetNumber = GetAbsoluteNumber(SequenceProgress);
-            if (number == targetNumber)
+            else if (input == Numbers[0])
             {
-                SequenceProgress++;
+                _index = 1;
             }
-            // Player pressed first in combination
-            else if (number == GetAbsoluteNumber(0))
-            {
-                SequenceProgress = 1;
-            }
-            // Restart sequence
             else
             {
-                SequenceProgress = 0;
+                _index = 0;
             }
 
-            if (SequenceProgress >= RelativeSequenceNumbers.Length)
+            if (_index == Numbers.Length)
             {
-                OnSequenceComplete?.Invoke();
+                OnComplete?.Invoke();
             }
-        }
-
-        public int GetAbsoluteNumber(int sequenceIndex)
-            => RelativeSequenceNumbers[sequenceIndex] 
-                   + new DashboardLayout().GetSectionStartFromDashboardSection(_dashboardSection);
-
-        public void AddOnSequenceCompleteListener(Action onSequenceComplete)
-        {
-            OnSequenceComplete += onSequenceComplete;
         }
     }
 }

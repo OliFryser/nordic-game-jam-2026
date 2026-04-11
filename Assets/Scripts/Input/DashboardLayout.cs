@@ -17,6 +17,6 @@ namespace Input
         }
         
         private int GetSectionStart(int section)
-            => section * SectionLength;
+            => section * SectionCount + StartingKey;
     }
 }
