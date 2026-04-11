@@ -80,7 +80,8 @@ public class HydraulicsManager : MonoBehaviour
 
     private void OnPress(EngineButton button)
     {
-        if (button.Section != _dashboardSection
+        if (button.Section != DashboardSection.HydraulicsLeft
+            && button.Section != DashboardSection.HydraulicsRight
             || button.InSectionIndex < 0
             || button.InSectionIndex >= 12)
         {
@@ -89,19 +90,22 @@ public class HydraulicsManager : MonoBehaviour
 
         if (_battery.Charge >= _costToPump)
         {
-            _isPressed[button.InSectionIndex] = true;
+            int offset = button.Section == DashboardSection.HydraulicsLeft ? 0 : 12;
+            _isPressed[button.InSectionIndex + offset] = true;
         }
     }
     
     private void OnRelease(EngineButton button)
     {
-        if (button.Section != _dashboardSection
+        if (button.Section != DashboardSection.HydraulicsLeft
+            && button.Section != DashboardSection.HydraulicsRight
             || button.InSectionIndex < 0
             || button.InSectionIndex >= 12)
         {
             return;
         }
         
-        _isPressed[button.InSectionIndex] = false;
+        int offset = button.Section == DashboardSection.HydraulicsLeft ? 0 : 12;
+        _isPressed[button.InSectionIndex + offset] = false;
     }
 }

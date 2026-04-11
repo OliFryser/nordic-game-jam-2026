@@ -379,6 +379,7 @@ MonoBehaviour:
   _bottom: {fileID: 2564806601669244710}
   _ring1: {fileID: 7546287152206470846}
   _ring2: {fileID: 7978332324172728183}
+  _liquid: {fileID: 6868850449366011431}
   _renderer: {fileID: 7125828497773888853}
   _light: {fileID: 2647505121591535747}
   _offMaterial: {fileID: 2100000, guid: a31c57b455a2e470fbcfec09610b5da2, type: 2}
@@ -795,7 +796,8 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a31c57b455a2e470fbcfec09610b5da2, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7100206176183710436, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -805,6 +807,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8110174657349695234, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7978332324172728183}
+    - targetCorrespondingSourceObject: {fileID: 1770670677995792191, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6868850449366011431}
   m_SourcePrefab: {fileID: 100100000, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
 --- !u!23 &74201418675444776 stripped
 MeshRenderer:
@@ -859,9 +864,37 @@ Light:
   m_CorrespondingSourceObject: {fileID: 286218000020944457, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
   m_PrefabInstance: {fileID: 2829679076161068746}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4600327758550940149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1770670677995792191, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
+  m_PrefabInstance: {fileID: 2829679076161068746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6868850449366011431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600327758550940149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b693b1d15248b7ba875503f14795b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightbulbMaterialController
+  _renderer: {fileID: 6076169035538300975}
+  _light: {fileID: 0}
+  _offMaterial: {fileID: 2100000, guid: f878a3e7fabe54136915a3ce9aa27890, type: 2}
+  _onMaterial: {fileID: 2100000, guid: 089b820b4aadd3342ac20cdcebe1f6ad, type: 2}
+  _offLightColor: {r: 0, g: 0, b: 0, a: 0}
+  _onLightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!23 &5019134393559737263 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7125404911436397925, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
+  m_PrefabInstance: {fileID: 2829679076161068746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6076169035538300975 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8293354163175333605, guid: f1bb1784c86004566a9475f0b5805589, type: 3}
   m_PrefabInstance: {fileID: 2829679076161068746}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6325352686121888200 stripped
