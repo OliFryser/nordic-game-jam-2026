@@ -2919,6 +2919,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: eee3755eb8eb2c54f9be99560a4f6238, type: 2}
+    - target: {fileID: 490939697822461851, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f423e67bbd6dce468ab9bb29ed9b387, type: 2}
     - target: {fileID: 919132149155446097, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: m_Name
       value: Cock pit
@@ -2931,6 +2935,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: eee3755eb8eb2c54f9be99560a4f6238, type: 2}
+    - target: {fileID: 3616844112969948802, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f423e67bbd6dce468ab9bb29ed9b387, type: 2}
     - target: {fileID: 6211671669721584747, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
