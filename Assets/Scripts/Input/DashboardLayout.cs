@@ -4,7 +4,7 @@ namespace Input
 {
     public class DashboardLayout
     {
-        public const int TotalKeys = 25;
+        public const int TotalKeys = 84;
         public const int StartingKey = 24;
 
         public int SectionLength => TotalKeys / SectionCount;

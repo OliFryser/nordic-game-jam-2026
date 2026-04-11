@@ -8,12 +8,12 @@ namespace Input
         {
             DashboardLayout dashboardLayout = new DashboardLayout();
             ButtonIndex = buttonIndex - DashboardLayout.StartingKey;
-            int sectionIndex = Math.Min(buttonIndex / dashboardLayout.SectionLength, dashboardLayout.SectionCount - 1);
-            InSectionIndex = buttonIndex % dashboardLayout.SectionLength;
+            int sectionIndex = Math.Min(ButtonIndex / dashboardLayout.SectionLength, dashboardLayout.SectionCount - 1);
+            InSectionIndex = ButtonIndex % dashboardLayout.SectionLength;
             Section = (DashboardSection)sectionIndex;
 
             // Make overflow keys belong to last section
-            if (buttonIndex >= DashboardLayout.TotalKeys - 1)
+            if (ButtonIndex >= DashboardLayout.TotalKeys - 1)
             {
                 InSectionIndex = new DashboardLayout().SectionLength + InSectionIndex;
             }
