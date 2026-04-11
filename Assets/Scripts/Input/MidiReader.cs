@@ -24,23 +24,11 @@ namespace Input
 
         void OnWillNoteOn(Minis.MidiNoteControl note, float velocity)
         {
-            // Debug.Log($"Ch.{note.channel,-2} " +
-            //              $"{note.shortDisplayName,3} ({note.noteNumber:000}) " +
-            //              $"Note On  {velocity * 100,3:0}%");
+            EngineButton engineButton = new EngineButton(note.noteNumber);
 
-            int sectionIndex = Math.Min(note.noteNumber / DashboardLayout.SectionLength, DashboardLayout.Sections.Length - 1);
-            int buttonIndex = note.noteNumber % DashboardLayout.SectionLength;
-
-            // Make overflow keys belong to last section
-            if (note.noteNumber >= DashboardLayout.TotalKeys - 1)
-            {
-                buttonIndex = DashboardLayout.SectionLength + buttonIndex;
-            }
-
-            ModuleManager.Tick(sectionIndex, buttonIndex);
+            ModuleManager.Tick(engineButton);
             
-            Debug.Log($"Clicked button {buttonIndex} in {DashboardLayout.Sections[sectionIndex]}");
-            
+            Debug.Log($"Clicked button {engineButton.InSectionIndex} in {DashboardLayout.Sections[engineButton.SectionIndex]}");
         }
 
         void OnWillNoteOff(Minis.MidiNoteControl note)

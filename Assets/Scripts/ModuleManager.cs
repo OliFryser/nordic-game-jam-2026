@@ -19,10 +19,10 @@ public class ModuleManager : MonoBehaviour
         Sequences[ModuleIndex].PrintSequence();
     }
     
-    public void Tick(int sectionIndex, int buttonIndex)
+    public void Tick(EngineButton engineButton)
     {
         var currentModule = Sequences[ModuleIndex];
-        currentModule.EnterInSequence(sectionIndex * DashboardLayout.SectionLength + buttonIndex);
+        currentModule.EnterInSequence(engineButton.ButtonIndex);
 
         if (currentModule.IsCompleted)
         {
