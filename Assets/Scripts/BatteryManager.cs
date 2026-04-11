@@ -9,6 +9,10 @@ public class BatteryManager : MonoBehaviour
 {
     [SerializeField] private SequenceOnCompleteEmitter _sequenceOnCompleteEmitter;
     [SerializeField] private Transform _batteryLevelVisual;
+    [SerializeField] private Material _batteryLevelMaterial;
+    [SerializeField] private Color _batteryEmptyColor;
+    [SerializeField] private Color _batteryFullColor;
+    
     public Battery Battery { get; private set; }
     
     private float ChargeAmount => 1f / 6f;
@@ -16,6 +20,7 @@ public class BatteryManager : MonoBehaviour
     private void Awake()
     {
         Battery = new Battery();
+        _batteryLevelMaterial.SetColor("_BaseColor", _batteryEmptyColor);
     }
 
     private void OnEnable()
@@ -23,12 +28,17 @@ public class BatteryManager : MonoBehaviour
         Battery.OnBatteryLevelChanged += OnBatteryLevelChanged;
         _sequenceOnCompleteEmitter.OnSequenceComplete += OnSequenceComplete;
     }
-
+    
     private void OnBatteryLevelChanged(float previousCharge, float currentCharge)
     {
         LMotion.Create(previousCharge, currentCharge, 0.2f)
             .WithEase(Ease.InOutQuad)
             .BindToLocalScaleY(_batteryLevelVisual);
+        Color previousColor = _batteryLevelMaterial.GetColor("_BaseColor");
+        Color newColor = Color.Lerp(_batteryEmptyColor, _batteryFullColor, currentCharge);
+        LMotion.Create(previousColor, newColor, 0.2f)
+            .WithEase(Ease.InOutQuad)
+            .Bind((c) => _batteryLevelMaterial.SetColor("_BaseColor", c));
     }
 
     private void OnDisable()
@@ -38,6 +48,7 @@ public class BatteryManager : MonoBehaviour
 
     }
 
+    [Button]
     private void OnSequenceComplete()
     {
         Battery.AddCharge(ChargeAmount);

@@ -228,6 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BatteryManager
   _sequenceOnCompleteEmitter: {fileID: 11400000, guid: 5e7a6267c2721466c951ea0215677073, type: 2}
   _batteryLevelVisual: {fileID: 9217082189320029245}
+  _batteryLevelMaterial: {fileID: 2100000, guid: 784f6dc35706c7548b95e5268b986530, type: 2}
+  _batteryEmptyColor: {r: 0.8207547, g: 0.2206746, b: 0.2206746, a: 1}
+  _batteryFullColor: {r: 0.52207106, g: 0.9433962, b: 0.33374867, a: 1}
 --- !u!1 &3502217304415163758
 GameObject:
   m_ObjectHideFlags: 0
