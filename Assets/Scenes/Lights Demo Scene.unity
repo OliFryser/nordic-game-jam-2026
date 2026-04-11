@@ -319,6 +319,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fef0c06325432aae361ce8659f7adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightBulb
+--- !u!1001 &1807861519
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5636987849922638875, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: _engineButtonPressEmitter
+      value: 
+      objectReference: {fileID: 11400000, guid: a46a2a569917a413cb7b444b3babeec4, type: 2}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081902251778970179, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7426880213302701088, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
+      propertyPath: m_Name
+      value: Module Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6f0fd8415620094a94dd7ce3e3890ed, type: 3}
 --- !u!1 &2014184858
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +430,9 @@ MonoBehaviour:
   _waitBetweenLightBulbs: 0.3
   _waitBetweenSequences: 1
   _sequence:
-    _sequenceNumbers: 0000000001000000
+    _dashboardSection: 0
+    _relativeSequenceNumbers: 0000000001000000
+  _engineButtonPressEmitter: {fileID: 11400000, guid: a46a2a569917a413cb7b444b3babeec4, type: 2}
 --- !u!1 &2102271295
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,3 +686,4 @@ SceneRoots:
   - {fileID: 2112680853}
   - {fileID: 2014184859}
   - {fileID: 1422862272}
+  - {fileID: 1807861519}

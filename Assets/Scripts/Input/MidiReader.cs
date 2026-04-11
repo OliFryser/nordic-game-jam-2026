@@ -8,6 +8,7 @@ namespace Input
     public class MidiReader : MonoBehaviour
     {
         public ModuleManager ModuleManager { get; set; }
+        [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
 
         #region Callback implementation
 
@@ -26,14 +27,19 @@ namespace Input
         {
             EngineButton engineButton = new EngineButton(note.noteNumber);
 
+            _engineButtonPressEmitter.OnPress?.Invoke(engineButton);
             ModuleManager.Tick(engineButton);
-            
+
             // Debug.Log($"Clicked button {engineButton.ButtonIndex}.\n" +
             //           $"{engineButton.InSectionIndex} in {DashboardLayout.Sections[engineButton.SectionIndex]}");
         }
 
         void OnWillNoteOff(Minis.MidiNoteControl note)
         {
+            EngineButton engineButton = new EngineButton(note.noteNumber);
+
+            _engineButtonPressEmitter.OnRelease?.Invoke(engineButton);
+
             // Debug.Log($"Ch.{note.channel,-2} " +
             //           $"{note.shortDisplayName,3} ({note.noteNumber:000}) " +
             //           "Note Off");
@@ -81,11 +87,12 @@ namespace Input
                 // midiDevice.onWillAftertouch -= OnWillAftertouch;
                 midiDevice.onWillControlChange -= OnWillControlChange;
             }
+
             _devices.Clear();
         }
 
         #endregion
-    
+
         void Start()
         {
             ModuleManager = FindAnyObjectByType<ModuleManager>();
@@ -99,6 +106,5 @@ namespace Input
             DisconnectAllDevices();
             InputSystem.onDeviceChange -= OnDeviceChange;
         }
-
     }
 }

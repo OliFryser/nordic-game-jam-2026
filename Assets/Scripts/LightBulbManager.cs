@@ -1,4 +1,5 @@
 using System;
+using Input;
 using Modules;
 using UnityEngine;
 
@@ -8,13 +9,38 @@ public class LightBulbManager : MonoBehaviour
     [SerializeField] private float _waitBetweenLightBulbs;
     [SerializeField] private float _waitBetweenSequences;
     [SerializeField] private Sequence _sequence;
+    [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
     
     private bool _isPlaying;
 
     private void Start()
     {
         Play(_sequence);
+        _engineButtonPressEmitter.OnPress += OnPress;
+        _engineButtonPressEmitter.OnRelease += OnRelease;
     }
+    
+    private void OnPress(EngineButton button)
+    {
+        if (button.Section != DashboardSection.Lights)
+        {
+            return;
+        }
+        
+        Interrupt();
+        TurnOn(button.InSectionIndex);
+    }
+    
+    private void OnRelease(EngineButton button)
+    {
+        if (button.Section != DashboardSection.Lights)
+        {
+            return;
+        }
+        
+        TurnOff(button.InSectionIndex);
+    }
+
 
     public void Play(Sequence sequence)
     {
@@ -38,17 +64,33 @@ public class LightBulbManager : MonoBehaviour
 
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
             }
-
+    
+            TurnOffAll();
             await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
         }
     }
 
-    public void Interrupt()
+    private void Interrupt()
     {
         _isPlaying = false;
+        TurnOffAll();
+    }
+
+    private void TurnOffAll()
+    {
         foreach (LightBulb lightBulb in _lightBulbs)
         {
             lightBulb.TurnOff();
         }
+    }
+
+    private void TurnOn(int index)
+    {
+        _lightBulbs[index].TurnOn();
+    }
+
+    private void TurnOff(int index)
+    {
+        _lightBulbs[index].TurnOff();
     }
 }

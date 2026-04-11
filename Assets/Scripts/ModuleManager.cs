@@ -16,7 +16,6 @@ public class ModuleManager : MonoBehaviour
 
     public void Start()
     {
-        _sequences[ModuleIndex].PrintRemainingSequence();
     }
     
     public void Tick(EngineButton engineButton)
@@ -24,19 +23,19 @@ public class ModuleManager : MonoBehaviour
         var currentModule = _sequences[ModuleIndex];
         currentModule.EnterInSequence(engineButton.ButtonIndex);
 
-        if (currentModule.IsCompleted)
-        {
-            ModuleIndex++;
-            Debug.Log($"Module Complete");
-        }
-        else
-        {
-            currentModule.PrintRemainingSequence();
-        }
-
-        if (ModuleIndex >= _sequences.Count)
-        {
-            Debug.Log($"All Puzzles Completed");
-        }
+        // if (currentModule.IsCompleted)
+        // {
+        //     ModuleIndex++;
+        //     Debug.Log($"Module Complete");
+        // }
+        // else
+        // {
+        //     currentModule.PrintRemainingSequence();
+        // }
+        //
+        // if (ModuleIndex >= _sequences.Count)
+        // {
+        //     Debug.Log($"All Puzzles Completed");
+        // }
     }
 }

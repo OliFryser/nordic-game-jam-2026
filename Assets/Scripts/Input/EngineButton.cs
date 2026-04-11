@@ -7,7 +7,7 @@ namespace Input
         public EngineButton(int buttonIndex)
         {
             DashboardLayout dashboardLayout = new DashboardLayout();
-            ButtonIndex = buttonIndex;
+            ButtonIndex = buttonIndex - DashboardLayout.StartingKey;
             int sectionIndex = Math.Min(buttonIndex / dashboardLayout.SectionLength, dashboardLayout.SectionCount - 1);
             InSectionIndex = buttonIndex % dashboardLayout.SectionLength;
             Section = (DashboardSection)sectionIndex;
