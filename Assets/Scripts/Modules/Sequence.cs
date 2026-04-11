@@ -8,7 +8,8 @@ namespace Modules
     public class Sequence
     {
         public int[] RelativeSequenceNumbers { get; }
-        public int[] _sequenceNumbers;
+        [SerializeField]
+        private int[] _sequenceNumbers;
         private int SequenceProgress { get; set; }
 
         public bool IsCompleted => SequenceProgress == _sequenceNumbers.Length;
