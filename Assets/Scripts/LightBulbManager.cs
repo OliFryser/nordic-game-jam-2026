@@ -22,6 +22,7 @@ public class LightBulbManager : MonoBehaviour
     
     private void OnPress(EngineButton button)
     {
+        print(button.Section);
         if (button.Section != DashboardSection.Lights)
         {
             return;
@@ -73,7 +74,6 @@ public class LightBulbManager : MonoBehaviour
     private void Interrupt()
     {
         _isPlaying = false;
-        TurnOffAll();
     }
 
     private void TurnOffAll()
@@ -86,6 +86,7 @@ public class LightBulbManager : MonoBehaviour
 
     private void TurnOn(int index)
     {
+        print(index);
         _lightBulbs[index].TurnOn();
     }
 
