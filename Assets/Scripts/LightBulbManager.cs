@@ -10,11 +10,13 @@ public class LightBulbManager : MonoBehaviour
     [SerializeField] private float _waitBetweenSequences;
     [SerializeField] private Sequence _sequence;
     [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
+    [SerializeField] private SequenceOnCompleteEmitter _sequenceOnCompleteEmitter;
     
     private bool _isPlaying;
 
     private void Start()
     {
+        _sequence.AddOnSequenceCompleteListener(_sequenceOnCompleteEmitter.OnSequenceComplete);
         // Play(_sequence);
         _engineButtonPressEmitter.OnPress += OnPress;
         _engineButtonPressEmitter.OnRelease += OnRelease;
