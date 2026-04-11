@@ -8,6 +8,7 @@ namespace Modules
     public class Sequence
     {
         public int[] RelativeSequenceNumbers { get; }
+        public int Length => _sequenceNumbers.Length;
         [SerializeField]
         private int[] _sequenceNumbers;
         private int SequenceProgress { get; set; }
