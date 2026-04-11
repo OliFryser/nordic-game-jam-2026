@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using Input;
 using UnityEngine;
 
 namespace Modules
@@ -7,39 +7,42 @@ namespace Modules
     [Serializable]
     public class Sequence
     {
-        public int[] RelativeSequenceNumbers { get; }
-        public int Length => _sequenceNumbers.Length;
         [SerializeField]
-        private int[] _sequenceNumbers;
+        private DashboardSection _dashboardSection;
+
+        [SerializeField] private int[] _relativeSequenceNumbers;
+
+        public int[] RelativeSequenceNumbers => _relativeSequenceNumbers; 
+        public int Length => RelativeSequenceNumbers.Length;
         private int SequenceProgress { get; set; }
 
-        public bool IsCompleted => SequenceProgress == _sequenceNumbers.Length;
+        public bool IsCompleted => SequenceProgress == RelativeSequenceNumbers.Length;
         
-        public Sequence(int startIndex, int[] sequenceNumbers)
+        public Sequence(DashboardSection section, int[] sequenceNumbers)
         {
             SequenceProgress = 0;
-            RelativeSequenceNumbers = sequenceNumbers;
-            _sequenceNumbers = sequenceNumbers.Select(s => s + startIndex).ToArray();
+            _relativeSequenceNumbers = sequenceNumbers;
         }
 
         public void PrintRemainingSequence()
         {
-            string sequence = $"Enter sequence: ";
-            for (int i = SequenceProgress; i < _sequenceNumbers.Length; i++)
+            string sequence = "Enter sequence: ";
+            for (int i = SequenceProgress; i < RelativeSequenceNumbers.Length; i++)
             {
-                sequence += $"{_sequenceNumbers[i]} ";
+                sequence += $"{RelativeSequenceNumbers[i]} ";
             }
             Debug.Log(sequence);
         }
 
         public void EnterInSequence(int number)
         {
-            if (number == _sequenceNumbers[SequenceProgress])
+            int targetNumber = GetAbsoluteNumber(SequenceProgress);
+            if (number == targetNumber)
             {
                 SequenceProgress++;
             }
-            // Player pressed first combination
-            else if (number == _sequenceNumbers[0])
+            // Player pressed first in combination
+            else if (number == GetAbsoluteNumber(0))
             {
                 SequenceProgress = 1;
             }
@@ -49,5 +52,9 @@ namespace Modules
                 SequenceProgress = 0;
             }
         }
+
+        public int GetAbsoluteNumber(int sequenceIndex)
+            => RelativeSequenceNumbers[sequenceIndex] 
+                   + new DashboardLayout().GetSectionStartFromDashboardSection(_dashboardSection);
     }
 }

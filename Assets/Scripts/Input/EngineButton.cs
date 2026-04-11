@@ -6,15 +6,16 @@ namespace Input
     {
         public EngineButton(int buttonIndex)
         {
+            DashboardLayout dashboardLayout = new DashboardLayout();
             ButtonIndex = buttonIndex;
-            int sectionIndex = Math.Min(buttonIndex / DashboardLayout.SectionLength, DashboardLayout.SectionCount - 1);
-            InSectionIndex = buttonIndex % DashboardLayout.SectionLength;
+            int sectionIndex = Math.Min(buttonIndex / dashboardLayout.SectionLength, dashboardLayout.SectionCount - 1);
+            InSectionIndex = buttonIndex % dashboardLayout.SectionLength;
             Section = (DashboardSection)sectionIndex;
 
             // Make overflow keys belong to last section
             if (buttonIndex >= DashboardLayout.TotalKeys - 1)
             {
-                InSectionIndex = DashboardLayout.SectionLength + InSectionIndex;
+                InSectionIndex = new DashboardLayout().SectionLength + InSectionIndex;
             }
         }
 
