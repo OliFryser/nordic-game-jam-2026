@@ -811,8 +811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HydraulicsManager
   _costToPump: 0
-  _gainOnPump: 0.1
-  _dropAmount: 0.00003
+  _gainOnPump: 1
+  _dropAmount: 0.028
   _slack: 0.2
   _battery:
     <Charge>k__BackingField: 0
@@ -830,6 +830,7 @@ MonoBehaviour:
   - {fileID: 469573949}
   - {fileID: 1173854826}
   - {fileID: 443688182}
+  _isPressed: 
   _lightbulbCorrectConfiguration: {fileID: 1992484356}
 --- !u!1 &1704153179
 GameObject:

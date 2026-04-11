@@ -14,11 +14,13 @@ public class HydraulicsManager : MonoBehaviour
 
     [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
     [SerializeField] private Hydraulic[] _hydraulics;
+    [SerializeField] private bool[] _isPressed;
 
     [SerializeField] private LightbulbMaterialController _lightbulbCorrectConfiguration;
     
     private void Start()
     {
+        _isPressed = new bool[_hydraulics.Length];
         foreach (Hydraulic hydraulic in _hydraulics)
         {
             hydraulic.Initialize(_slack);
@@ -28,11 +30,13 @@ public class HydraulicsManager : MonoBehaviour
     private void OnEnable()
     {
         _engineButtonPressEmitter.OnPress += OnPress;
+        _engineButtonPressEmitter.OnRelease += OnRelease;
     }
 
     private void OnDisable()
     {
         _engineButtonPressEmitter.OnPress -= OnPress;
+        _engineButtonPressEmitter.OnRelease -= OnRelease;
     }
 
     public void Initialize(Battery battery)
@@ -42,9 +46,17 @@ public class HydraulicsManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (Hydraulic hydraulic in _hydraulics)
+        for (int i = 0; i < _hydraulics.Length; i++)
         {
-            hydraulic.Drop(_dropAmount);
+            if (_isPressed[i] && _battery.Charge >= _costToPump)
+            {
+                _battery.RemoveCharge(_costToPump);
+                _hydraulics[i].Pump(_gainOnPump * Time.deltaTime);
+            }
+            else
+            {
+                _hydraulics[i].Drop(_dropAmount * Time.deltaTime);
+            }
         }
 
         foreach (Hydraulic hydraulic in _hydraulics)
@@ -58,8 +70,6 @@ public class HydraulicsManager : MonoBehaviour
 
     private void OnPress(EngineButton button)
     {
-        print($"{button.InSectionIndex} pressed from {button.Section}");
-
         if (button.Section != DashboardSection.Hydraulics
             || button.InSectionIndex < 0
             || button.InSectionIndex >= 12)
@@ -69,8 +79,19 @@ public class HydraulicsManager : MonoBehaviour
 
         if (_battery.Charge >= _costToPump)
         {
-            _battery.RemoveCharge(_costToPump);
-            _hydraulics[button.InSectionIndex].Pump(_gainOnPump);
+            _isPressed[button.InSectionIndex] = true;
         }
+    }
+    
+    private void OnRelease(EngineButton button)
+    {
+        if (button.Section != DashboardSection.Hydraulics
+            || button.InSectionIndex < 0
+            || button.InSectionIndex >= 12)
+        {
+            return;
+        }
+        
+        _isPressed[button.InSectionIndex] = false;
     }
 }
