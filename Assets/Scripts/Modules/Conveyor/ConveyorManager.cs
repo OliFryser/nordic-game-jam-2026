@@ -28,6 +28,8 @@ namespace Modules.Conveyor
         [SerializeField]
         private List<ConveyorItem> _items;
 
+        [SerializeField] private List<GameObject> _itemModels;
+
         private void Start()
         {
             AssignTypesToItemsAndGrabbers();
@@ -41,9 +43,12 @@ namespace Modules.Conveyor
             {
                 ConveyorGrabber grabber = _grabbers[i];
                 ConveyorItem item = _items[i];
-                ConveyorItemType type = (ConveyorItemType) (i / Enum.GetValues(typeof(ConveyorItemType)).Length);
+                int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length;
+                ConveyorItemType type = (ConveyorItemType)typeIndex;
                 grabber.CompatibleType = type;
+                GameObject prefab = _itemModels[typeIndex];
                 item.ItemType = type;
+                Instantiate(prefab, item.transform);
             }
         }
 
