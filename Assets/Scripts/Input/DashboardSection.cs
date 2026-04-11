@@ -4,6 +4,7 @@ namespace Input
     {
         Lights = 0,
         HydraulicsLeft = 1,
-        HydraulicsRight
+        HydraulicsRight = 2,
+        ConveyorBelt = 3,
     }
 }

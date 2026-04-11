@@ -16,6 +16,7 @@ namespace Modules
         [SerializeField] private Transform _bottom;
         [SerializeField] private LightbulbMaterialController _ring1;
         [SerializeField] private LightbulbMaterialController _ring2;
+        [SerializeField] private LightbulbMaterialController _liquid;
         
         [SerializeField] private MeshRenderer _renderer;
         [SerializeField] private Light _light;
@@ -81,6 +82,7 @@ namespace Modules
             
             _ring1.Set(on);
             _ring2.Set(on);
+            _liquid.Set(on);
         }
     }
 }
