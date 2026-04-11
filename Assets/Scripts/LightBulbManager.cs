@@ -13,6 +13,7 @@ public class LightBulbManager : MonoBehaviour
     [SerializeField] private float _waitBetweenSequences;
     [SerializeField] private Sequence _sequence;
     [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
+    [SerializeField] private SequenceOnCompleteEmitter _sequenceOnCompleteEmitter;
     
     private bool _isPlaying;
 
@@ -27,6 +28,7 @@ public class LightBulbManager : MonoBehaviour
     {
         _sequence = new Sequence(DashboardSection.Lights, 
             Enumerable.Range(0, 3).Select(_ => Random.Range(0, 12)).ToArray());
+        _sequence.AddOnSequenceCompleteListener(_sequenceOnCompleteEmitter.OnSequenceComplete);
         Play(_sequence);
     }
     

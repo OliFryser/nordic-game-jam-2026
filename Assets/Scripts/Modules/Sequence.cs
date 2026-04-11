@@ -1,6 +1,7 @@
 using System;
 using Input;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Modules
 {
@@ -9,14 +10,14 @@ namespace Modules
     {
         [SerializeField]
         private DashboardSection _dashboardSection;
-
         [SerializeField] private int[] _relativeSequenceNumbers;
 
         public int[] RelativeSequenceNumbers => _relativeSequenceNumbers; 
         public int Length => RelativeSequenceNumbers.Length;
         private int SequenceProgress { get; set; }
-
-        public bool IsCompleted => SequenceProgress == RelativeSequenceNumbers.Length;
+        
+        private Action OnSequenceComplete { get; set; }
+        
         
         public Sequence(DashboardSection section, int[] sequenceNumbers)
         {
@@ -51,10 +52,20 @@ namespace Modules
             {
                 SequenceProgress = 0;
             }
+
+            if (SequenceProgress >= RelativeSequenceNumbers.Length)
+            {
+                OnSequenceComplete?.Invoke();
+            }
         }
 
         public int GetAbsoluteNumber(int sequenceIndex)
             => RelativeSequenceNumbers[sequenceIndex] 
                    + new DashboardLayout().GetSectionStartFromDashboardSection(_dashboardSection);
+
+        public void AddOnSequenceCompleteListener(Action onSequenceComplete)
+        {
+            OnSequenceComplete += onSequenceComplete;
+        }
     }
 }
