@@ -48,7 +48,8 @@ public class LightBulbManager : MonoBehaviour
     private void OnPress(EngineButton button)
     {
         if (button.Section != DashboardSection.Lights 
-            || button.InSectionIndex < 0)
+            || button.InSectionIndex < 0
+            || button.InSectionIndex >= 12)
         {
             return;
         }
