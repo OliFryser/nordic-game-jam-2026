@@ -9,12 +9,22 @@ namespace Modules.Conveyor
         public ConveyorItemType CompatibleType;
         private Vector2 _xBounds { get; set; }
         
+        [SerializeField]
+        private GameObject _grabberModel;
+
+        private GrabberArm GrabberArm { get; set; }
+        
         public bool HasCollectedItemType { get; private set; }
         
         private void Awake()
         {
             float xScale = transform.localScale.x / 2;
             _xBounds = new Vector2(transform.position.x - xScale, transform.position.x + xScale);
+        }
+
+        private void Start()
+        {
+            GrabberArm = Instantiate(_grabberModel, transform).GetComponent<GrabberArm>();
         }
         
         [CanBeNull]
@@ -29,6 +39,15 @@ namespace Modules.Conveyor
                 }
             }
             return null;
+        }
+
+        public async Awaitable StartGrab(ConveyorItem item)
+        {
+            item.IsBeingGrabbed = true;
+            GrabberArm.ExtendArm();
+            await Awaitable.WaitForSecondsAsync(0.2f);
+            GrabberArm.RetractArm(item.transform);
+            await Awaitable.WaitForSecondsAsync(0.2f);
         }
 
         private void OnCollectedItem()

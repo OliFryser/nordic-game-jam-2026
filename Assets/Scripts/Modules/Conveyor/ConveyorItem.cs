@@ -10,6 +10,8 @@ namespace Modules.Conveyor
         public ConveyorBelt CurrentBelt;
         public ConveyorItemType ItemType;
 
+        public bool IsBeingGrabbed { get; set; }
+        
         public bool IsTouchingBelt()
         {
             return Mathf.Approximately(ItemBottom, CurrentBelt.GetSurface());

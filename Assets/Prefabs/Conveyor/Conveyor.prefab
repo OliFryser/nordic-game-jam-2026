@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &212217001400453523
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &3017854879815274061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &4016015776784866546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &5232817164111827346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &5490789942953881378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &6351927666079057398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &6679281585582021817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &7121602290366275098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &7977082712517392724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,6 +2949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &8091202270606567550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,6 +3181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1 &9175093425654439805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
+  _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
 --- !u!1001 &432197180278475136
 PrefabInstance:
   m_ObjectHideFlags: 0

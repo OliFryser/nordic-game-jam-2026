@@ -89,7 +89,7 @@ namespace Modules.Conveyor
         {
             foreach (var conveyorItem in _items)
             {
-                if (!conveyorItem.gameObject.activeSelf)
+                if (!conveyorItem.gameObject.activeSelf || conveyorItem.IsBeingGrabbed)
                     continue;
                 if (conveyorItem.CurrentBelt == null)
                 {
@@ -119,7 +119,7 @@ namespace Modules.Conveyor
             conveyorItem.transform.localPosition = _itemSpawnerTransform.position;
         }
 
-        private void OnEngineButtonPress(EngineButton button)
+        private async void OnEngineButtonPress(EngineButton button)
         {
             if (button.Section != DashboardSection.ConveyorBelt)
                 return;
@@ -135,6 +135,7 @@ namespace Modules.Conveyor
 
             if (item != null)
             {
+                await activatedGrabber.StartGrab(item);
                 _items.Remove(item);
                 Destroy(item.gameObject);
             }
