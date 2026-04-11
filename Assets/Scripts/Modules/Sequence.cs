@@ -7,6 +7,7 @@ namespace Modules
     [Serializable]
     public class Sequence
     {
+        public int[] RelativeSequenceNumbers { get; }
         public int[] _sequenceNumbers;
         private int SequenceProgress { get; set; }
 
@@ -15,6 +16,7 @@ namespace Modules
         public Sequence(int startIndex, int[] sequenceNumbers)
         {
             SequenceProgress = 0;
+            RelativeSequenceNumbers = sequenceNumbers;
             _sequenceNumbers = sequenceNumbers.Select(s => s + startIndex).ToArray();
         }
 
