@@ -1,11 +1,14 @@
 using System;
+using System.Linq;
 using Input;
 using Modules;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LightBulbManager : MonoBehaviour
 {
     [SerializeField] private LightBulb[] _lightBulbs;
+    [SerializeField] private LightBulb[] _computerLightBulbs;
     [SerializeField] private float _waitBetweenLightBulbs;
     [SerializeField] private float _waitBetweenSequences;
     [SerializeField] private Sequence _sequence;
@@ -16,23 +19,41 @@ public class LightBulbManager : MonoBehaviour
 
     private void Start()
     {
-        _sequence.AddOnSequenceCompleteListener(_sequenceOnCompleteEmitter.OnSequenceComplete);
-        // Play(_sequence);
+        StartNewSequence();
+    }
+
+    private void OnEnable()
+    {
         _engineButtonPressEmitter.OnPress += OnPress;
         _engineButtonPressEmitter.OnRelease += OnRelease;
+        _sequenceOnCompleteEmitter.OnSequenceComplete += OnSequenceComplete;
+    }
+
+    private void OnDisable()
+    {
+        _engineButtonPressEmitter.OnPress -= OnPress;
+        _engineButtonPressEmitter.OnRelease -= OnRelease;
+        _sequenceOnCompleteEmitter.OnSequenceComplete -= OnSequenceComplete;
+    }
+
+    private void StartNewSequence()
+    {
+        _sequence = 
+            new Sequence(Enumerable.Range(0, 3).Select(_ => Random.Range(0, 12)).ToArray());
+        // _sequence.AddOnSequenceCompleteListener(_sequenceOnCompleteEmitter.OnSequenceComplete);
+        _sequence.OnComplete += OnSequenceComplete;
+        Play(_sequence);
     }
     
     private void OnPress(EngineButton button)
     {
-        print($"{button.Section} {button.InSectionIndex}");
         if (button.Section != DashboardSection.Lights 
-            // || button.InSectionIndex > 12 
             || button.InSectionIndex < 0)
         {
             return;
         }
         
-        Interrupt();
+        _sequence.Enter(button.InSectionIndex);
         TurnOn(button.InSectionIndex, true);
     }
     
@@ -58,22 +79,25 @@ public class LightBulbManager : MonoBehaviour
     {
         while (_isPlaying)
         {
-            foreach (int i in _sequence.RelativeSequenceNumbers)
+            foreach (int i in _sequence.Numbers)
             {
-                for (int j = 0; j < _lightBulbs.Length; j++)
+                for (int j = 0; j < _computerLightBulbs.Length; j++)
                 {
                     if (!_isPlaying) return;
-                    if (i == j) _lightBulbs[j].TurnOn();
-                    else _lightBulbs[j].TurnOff();
+                    if (i == j) _computerLightBulbs[j].TurnOn();
+                    else _computerLightBulbs[j].TurnOff();
                 }
 
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
-                
-                for (int j = 0; j < _lightBulbs.Length; j++)
-                {
-                    _lightBulbs[j].TurnOff();
-                }
 
+                if (_isPlaying)
+                {
+                    for (int j = 0; j < _computerLightBulbs.Length; j++)
+                    {
+                        _computerLightBulbs[j].TurnOff();
+                    }
+                }
+                
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
             }
     
@@ -87,6 +111,26 @@ public class LightBulbManager : MonoBehaviour
         _isPlaying = false;
     }
 
+    private void OnSequenceComplete()
+    {
+        OnSequenceCompleteAsync();
+    }
+    
+    private async Awaitable OnSequenceCompleteAsync()
+    {
+        Interrupt();
+        
+        foreach (LightBulb lightBulb in _computerLightBulbs)
+        {
+            lightBulb.TurnOn(true);
+        }
+        
+        await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
+        
+        TurnOffAll();
+        StartNewSequence();
+    }
+    
     private void TurnOffAll()
     {
         foreach (LightBulb lightBulb in _lightBulbs)
@@ -98,7 +142,6 @@ public class LightBulbManager : MonoBehaviour
     private void TurnOn(int index, bool isPlayer)
     {
         int i = index % 12;
-        print(i);
         _lightBulbs[i].TurnOn(isPlayer);
     }
 
