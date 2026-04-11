@@ -7,7 +7,7 @@ namespace Input
         public const int TotalKeys = 84;
         public const int StartingKey = 24;
 
-        public int SectionLength => TotalKeys / SectionCount;
+        public int SectionLength => 12;
         public int SectionCount => Enum.GetValues(typeof(DashboardSection)).Length;
      
         public int GetSectionStartFromDashboardSection(DashboardSection section)
@@ -17,6 +17,6 @@ namespace Input
         }
         
         private int GetSectionStart(int section)
-            => section * SectionCount + StartingKey;
+            => section * SectionLength + StartingKey;
     }
 }

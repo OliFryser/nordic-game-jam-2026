@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading;
 using Input;
 using Modules;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class LightBulbManager : MonoBehaviour
     [SerializeField] private Sequence _sequence;
     [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
     [SerializeField] private SequenceOnCompleteEmitter _sequenceOnCompleteEmitter;
-    
+    private CancellationTokenSource _cts;
     private bool _isPlaying;
 
     private void Start()
@@ -34,15 +35,19 @@ public class LightBulbManager : MonoBehaviour
         _engineButtonPressEmitter.OnPress -= OnPress;
         _engineButtonPressEmitter.OnRelease -= OnRelease;
         _sequenceOnCompleteEmitter.OnSequenceComplete -= OnSequenceComplete;
+        _cts?.Cancel();
+        _cts?.Dispose();
     }
 
     private void StartNewSequence()
     {
+        _cts?.Cancel();
+        _cts = new CancellationTokenSource();
         _sequence = 
             new Sequence(Enumerable.Range(0, 3).Select(_ => Random.Range(0, 12)).ToArray());
         // _sequence.AddOnSequenceCompleteListener(_sequenceOnCompleteEmitter.OnSequenceComplete);
         _sequence.OnComplete += OnSequenceComplete;
-        Play(_sequence);
+        Play(_sequence, _cts.Token);
     }
     
     private void OnPress(EngineButton button)
@@ -69,16 +74,16 @@ public class LightBulbManager : MonoBehaviour
     }
 
 
-    public void Play(Sequence sequence)
+    public void Play(Sequence sequence, CancellationToken token)
     {
         _sequence = sequence;
         _isPlaying = true;
-        Play();
+        _ = Play(token);
     }
 
-    private async Awaitable Play()
+    private async Awaitable Play(CancellationToken token)
     {
-        while (_isPlaying)
+        while (_isPlaying && !token.IsCancellationRequested)
         {
             foreach (int i in _sequence.Numbers)
             {
@@ -89,7 +94,7 @@ public class LightBulbManager : MonoBehaviour
                     else _computerLightBulbs[j].TurnOff();
                 }
 
-                await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
+                await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs, token);
 
                 if (_isPlaying)
                 {
@@ -99,11 +104,11 @@ public class LightBulbManager : MonoBehaviour
                     }
                 }
                 
-                await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
+                await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs, token);
             }
     
             TurnOffAll();
-            await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
+            await Awaitable.WaitForSecondsAsync(_waitBetweenSequences, token);
         }
     }
 
@@ -114,7 +119,7 @@ public class LightBulbManager : MonoBehaviour
 
     private void OnSequenceComplete()
     {
-        OnSequenceCompleteAsync();
+        _ = OnSequenceCompleteAsync();
     }
     
     private async Awaitable OnSequenceCompleteAsync()

@@ -38,6 +38,7 @@ public class BatteryManager : MonoBehaviour
 
     }
 
+    [Button("Add Charge")]
     private void OnSequenceComplete()
     {
         Battery.AddCharge(ChargeAmount);
