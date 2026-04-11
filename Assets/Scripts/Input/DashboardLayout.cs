@@ -1,34 +1,21 @@
+using System;
 using System.Linq;
 
 namespace Input
 {
     public static class DashboardLayout
     {
-        public static readonly string[] Sections =
+        public static int GetSectionStartFromName(DashboardSection section)
         {
-            "Engine",
-            "Lights",
-            "Storage",
-        };
-
-        public static int GetSectionStartFromName(string name)
-        {
-            int sectionIndex = 0;
-            for (var i = 0; i < Sections.Length; i++)
-            {
-                if (name == Sections[i])
-                {
-                    sectionIndex = i;
-                }
-            }
-
+            int sectionIndex = (int)section;
             return GetSectionStart(sectionIndex);
         }
 
         public const int TotalKeys = 25;
 
-        public static int SectionLength => TotalKeys / Sections.Length;
-
+        public static int SectionLength => TotalKeys / SectionCount;
+        public static int SectionCount => Enum.GetValues(typeof(DashboardSection)).Length;
+        
         public static int GetSectionStart(int section)
         {
             return section * SectionLength;

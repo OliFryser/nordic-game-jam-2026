@@ -7,8 +7,9 @@ namespace Input
         public EngineButton(int buttonIndex)
         {
             ButtonIndex = buttonIndex;
-            SectionIndex = Math.Min(buttonIndex / DashboardLayout.SectionLength, DashboardLayout.Sections.Length - 1);
+            int sectionIndex = Math.Min(buttonIndex / DashboardLayout.SectionLength, DashboardLayout.SectionCount - 1);
             InSectionIndex = buttonIndex % DashboardLayout.SectionLength;
+            Section = (DashboardSection)sectionIndex;
 
             // Make overflow keys belong to last section
             if (buttonIndex >= DashboardLayout.TotalKeys - 1)
@@ -17,7 +18,7 @@ namespace Input
             }
         }
 
-        public int SectionIndex { get; }
+        public DashboardSection Section { get; }
         public int InSectionIndex { get; }
         public int ButtonIndex { get; }
     }

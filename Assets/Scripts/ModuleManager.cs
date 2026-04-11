@@ -10,8 +10,8 @@ public class ModuleManager : MonoBehaviour
     [SerializeField] private List<Sequence> Sequences = 
         new()
         {
-            new Sequence(DashboardLayout.GetSectionStartFromName("Lights"), new int[]{ 0, 1, 5 }),
-            new Sequence(DashboardLayout.GetSectionStartFromName("Lights"), new int[]{ 0, 3, 5 }),
+            new Sequence(DashboardLayout.GetSectionStartFromName(DashboardSection.Lights), new int[]{ 0, 1, 5 }),
+            new Sequence(DashboardLayout.GetSectionStartFromName(DashboardSection.Lights), new int[]{ 0, 3, 5 }),
         };
 
     public void Start()
