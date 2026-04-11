@@ -33,7 +33,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 0.4
-    - _Smoothness: 0.7
+    - _OcclusionStrength: 0.78
+    - _Parallax: 0.0548
+    - _Smoothness: 0.37
     m_Colors:
     - _BaseColor: {r: 1, g: 0.9614028, b: 0.8611859, a: 1}
     - _Color: {r: 1, g: 0.9614027, b: 0.8611859, a: 1}
