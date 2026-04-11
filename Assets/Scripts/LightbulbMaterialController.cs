@@ -12,6 +12,9 @@ public class LightbulbMaterialController : MonoBehaviour
     public void Set(bool on)
     {
         _renderer.material = on ? _onMaterial : _offMaterial;
+
+        if (_light == null) return;
+        
         _light.enabled = on;
         _light.color = on ? _onLightColor : _offLightColor;
     }
