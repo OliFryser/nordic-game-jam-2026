@@ -14,27 +14,27 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 1, g: 0.9751062, b: 0.80188674, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.009
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.84
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 7b3a6ad5f8bfbf6408eb536f630ef2bb, type: 2}
-  m_HaloStrength: 0.497
-  m_FlareStrength: 1
-  m_FlareFadeSpeed: 3
+  m_HaloStrength: 1
+  m_FlareStrength: 0.571
+  m_FlareFadeSpeed: 8
   m_HaloTexture: {fileID: 0}
-  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_SpotCookie: {fileID: 2800000, guid: 03557cb833a29514e809fe3121c3b04d, type: 3}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 256
-  m_ReflectionBounces: 1
+  m_DefaultReflectionResolution: 2048
+  m_ReflectionBounces: 4
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
@@ -66,7 +66,7 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_ReflectionCompression: 2
+    m_ReflectionCompression: 0
     m_MixedBakeMode: 2
     m_BakeBackend: 2
     m_PVRSampling: 1
@@ -378,7 +378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1063245542222940909, guid: b7508daa5b9cb445cb527329de1f529c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.524
+      value: -1.73
       objectReference: {fileID: 0}
     - target: {fileID: 1063245542222940909, guid: b7508daa5b9cb445cb527329de1f529c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1995,8 +1995,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 965.9
-  field of view: 60
+  far clip plane: 1103.4
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -2009,7 +2009,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2023,7 +2023,7 @@ Transform:
   m_GameObject: {fileID: 676795964}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2453074, y: 0, z: 0, w: 0.96944535}
-  m_LocalPosition: {x: 0, y: 1.98, z: -9.27}
+  m_LocalPosition: {x: 0, y: 1.512, z: -8.631}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2052,10 +2052,10 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
-  m_StopNaN: 0
+  m_StopNaN: 1
   m_Dithering: 0
   m_ClearDepth: 1
   m_AllowXRRendering: 1
@@ -5144,9 +5144,9 @@ Light:
   m_GameObject: {fileID: 2029103751}
   m_Enabled: 1
   serializedVersion: 13
-  m_Type: 1
+  m_Type: 3
   m_Color: {r: 0.9403224, g: 0.94070077, b: 0.81011826, a: 1}
-  m_Intensity: 1
+  m_Intensity: 21.9
   m_Range: 13.3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5158,7 +5158,7 @@ Light:
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 3.37
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -5188,7 +5188,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 3.9, y: 5.59}
-  m_BounceIntensity: 55.3
+  m_BounceIntensity: 12.8
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -5196,7 +5196,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
   m_ShapeRadius: 0.025
-  m_ShadowAngle: 0
+  m_ShadowAngle: 25.5
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
@@ -5208,13 +5208,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029103751}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6361901, y: 0.3086457, z: 0.30864573, w: 0.6361902}
-  m_LocalPosition: {x: -2.31, y: 2.63, z: -14.87}
+  m_LocalRotation: {x: 0.053723406, y: -0.08842297, z: 0.48348987, w: 0.8692139}
+  m_LocalPosition: {x: -0, y: 1.06, z: -12.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 38.24, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: 10.306, y: -5.937, z: 57.633}
 --- !u!1001 &2039843529
 PrefabInstance:
   m_ObjectHideFlags: 0
