@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _grabberArmExtender: {fileID: 56483673465773643}
-  _extendedHeight: 0
+  _extendedHeight: 0.5
   _retractedHeight: 1.5
 --- !u!1001 &307455594284729926
 PrefabInstance:
@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MechanicalArm
       objectReference: {fileID: 0}
+    - target: {fileID: 7379598872749541881, guid: ac6103a6a1292a744a262a9adfb50364, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f37f041624689b408de2af83edcecd9, type: 2}
     - target: {fileID: 8326380410089334089, guid: ac6103a6a1292a744a262a9adfb50364, type: 3}
       propertyPath: m_Name
       value: Arm

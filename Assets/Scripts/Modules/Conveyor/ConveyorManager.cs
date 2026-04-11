@@ -43,12 +43,14 @@ namespace Modules.Conveyor
             {
                 ConveyorGrabber grabber = _grabbers[i];
                 ConveyorItem item = _items[i];
-                int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length;
+                int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length + 1;
                 ConveyorItemType type = (ConveyorItemType)typeIndex;
                 grabber.CompatibleType = type;
                 GameObject prefab = _itemModels[typeIndex];
                 item.ItemType = type;
                 Instantiate(prefab, item.transform);
+                GameObject iconOnGrabber = Instantiate(prefab, grabber.transform);
+                iconOnGrabber.transform.Translate(new Vector3(0f, 0f, -.75f));
             }
         }
 

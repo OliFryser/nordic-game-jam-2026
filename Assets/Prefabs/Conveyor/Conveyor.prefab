@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 4557581815572668220}
   - component: {fileID: 1217501744493749292}
   - component: {fileID: 1174688817206963339}
-  - component: {fileID: 6636970432444696666}
   - component: {fileID: 5205778618029314922}
   m_Layer: 0
   m_Name: Grabber 8
@@ -155,7 +154,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140135872841845400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -197,27 +196,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6636970432444696666
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140135872841845400}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5205778618029314922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3857145456457669580}
 --- !u!1 &212217001400453523
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +770,6 @@ GameObject:
   - component: {fileID: 2418533664952919299}
   - component: {fileID: 1433471285039853707}
   - component: {fileID: 6335035965890939366}
-  - component: {fileID: 3757822714857703550}
   - component: {fileID: 7789005918415613953}
   m_Layer: 0
   m_Name: Grabber 0
@@ -830,7 +808,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2916773822538654396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -872,27 +850,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3757822714857703550
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2916773822538654396}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7789005918415613953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &3017854879815274061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +981,6 @@ GameObject:
   - component: {fileID: 7340952422957452454}
   - component: {fileID: 4339841029826900655}
   - component: {fileID: 3716058553942811768}
-  - component: {fileID: 1564125969482061403}
   - component: {fileID: 1836527478369561777}
   m_Layer: 0
   m_Name: Grabber 4
@@ -1062,7 +1019,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3348187493405568698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1104,27 +1061,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1564125969482061403
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348187493405568698}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1836527478369561777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,6 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &4016015776784866546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1376,6 @@ GameObject:
   - component: {fileID: 3801634928701168322}
   - component: {fileID: 8042052354111709195}
   - component: {fileID: 4862918531532056900}
-  - component: {fileID: 895531491332130011}
   - component: {fileID: 3290313485282880918}
   m_Layer: 0
   m_Name: Grabber 3
@@ -1478,7 +1414,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5231141742632138295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1520,27 +1456,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &895531491332130011
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5231141742632138295}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3290313485282880918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3857145456457669580}
 --- !u!1 &5232817164111827346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,8 +1541,8 @@ MonoBehaviour:
   - {fileID: 5900546227509256938}
   - {fileID: 8875242886595938711}
   _fallSpeed: 8
-  _beltSpeed: 3
-  _spawningDelay: 1
+  _beltSpeed: 1
+  _spawningDelay: 3
   _items:
   - {fileID: 2892057125120987383}
   - {fileID: 748966442049498246}
@@ -1784,7 +1700,6 @@ GameObject:
   - component: {fileID: 2632608164313284933}
   - component: {fileID: 1899555748955713603}
   - component: {fileID: 5502372972522180151}
-  - component: {fileID: 3339520568449314211}
   - component: {fileID: 6639005387709109564}
   m_Layer: 0
   m_Name: Grabber 1
@@ -1823,7 +1738,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5415127369664493564}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1865,27 +1780,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3339520568449314211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5415127369664493564}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6639005387709109564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1900,6 +1794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3857145456457669580}
 --- !u!1 &5490789942953881378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1844,6 @@ GameObject:
   - component: {fileID: 2045510688916482491}
   - component: {fileID: 1127020130737324491}
   - component: {fileID: 8637491279748570047}
-  - component: {fileID: 2852927962594582973}
   - component: {fileID: 6279101230030495604}
   m_Layer: 0
   m_Name: Grabber 2
@@ -1988,7 +1882,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5967835013337814428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2030,27 +1924,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2852927962594582973
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5967835013337814428}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6279101230030495604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,6 +1938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &6351927666079057398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,7 +1950,6 @@ GameObject:
   - component: {fileID: 4100552123129419029}
   - component: {fileID: 5112771109830818529}
   - component: {fileID: 2556721338369771269}
-  - component: {fileID: 4364990285185578376}
   - component: {fileID: 6728979027282366272}
   m_Layer: 0
   m_Name: Grabber 5
@@ -2115,7 +1988,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6351927666079057398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2157,27 +2030,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4364990285185578376
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351927666079057398}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6728979027282366272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,6 +2044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &6679281585582021817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,7 +2161,6 @@ GameObject:
   - component: {fileID: 5442819369657692217}
   - component: {fileID: 8915360578166842035}
   - component: {fileID: 6852653825837840827}
-  - component: {fileID: 3967487268248094350}
   - component: {fileID: 5294116333488998068}
   m_Layer: 0
   m_Name: Grabber 6
@@ -2347,7 +2199,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6692561857450603410}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2389,27 +2241,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3967487268248094350
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692561857450603410}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5294116333488998068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2424,6 +2255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3857145456457669580}
 --- !u!1 &7121602290366275098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,7 +2508,6 @@ GameObject:
   - component: {fileID: 4625919967727342351}
   - component: {fileID: 3969009300440616567}
   - component: {fileID: 4798508516126545764}
-  - component: {fileID: 8244534385128460251}
   - component: {fileID: 8875242886595938711}
   m_Layer: 0
   m_Name: Grabber 11
@@ -2715,7 +2546,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7838805347736666602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2757,27 +2588,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8244534385128460251
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838805347736666602}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8875242886595938711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,6 +2602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &7977082712517392724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,7 +2645,6 @@ GameObject:
   - component: {fileID: 5355478678290995656}
   - component: {fileID: 3774196229977164135}
   - component: {fileID: 6429015677759773060}
-  - component: {fileID: 6990646137025895849}
   - component: {fileID: 4169716996516525250}
   m_Layer: 0
   m_Name: Grabber 7
@@ -2873,7 +2683,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8038039632719003842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2915,27 +2725,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6990646137025895849
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8038039632719003842}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4169716996516525250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,6 +2739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1 &8091202270606567550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +2856,6 @@ GameObject:
   - component: {fileID: 3061337467615087857}
   - component: {fileID: 7552435828780542386}
   - component: {fileID: 7035193598209274508}
-  - component: {fileID: 2784656016288714939}
   - component: {fileID: 5900546227509256938}
   m_Layer: 0
   m_Name: Grabber 10
@@ -3105,7 +2894,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8751306839685136669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3147,27 +2936,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2784656016288714939
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8751306839685136669}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5900546227509256938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,6 +2950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3857145456457669580}
 --- !u!1 &9175093425654439805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +2962,6 @@ GameObject:
   - component: {fileID: 4845029884195121475}
   - component: {fileID: 2973509943061490091}
   - component: {fileID: 6907276292093082041}
-  - component: {fileID: 8277142269267523083}
   - component: {fileID: 2940536410553984088}
   m_Layer: 0
   m_Name: Grabber 9
@@ -3232,7 +3000,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9175093425654439805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3274,27 +3042,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8277142269267523083
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9175093425654439805}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2940536410553984088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,6 +3056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Modules.Conveyor.ConveyorGrabber
   CompatibleType: 0
   _grabberModel: {fileID: 5563684732528390102, guid: 95ccc7a8073242048823ed67befd3eb4, type: 3}
+  _belt: {fileID: 3483877689532065085}
 --- !u!1001 &432197180278475136
 PrefabInstance:
   m_ObjectHideFlags: 0

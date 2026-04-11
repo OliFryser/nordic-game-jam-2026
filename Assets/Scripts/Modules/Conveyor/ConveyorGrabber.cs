@@ -12,6 +12,8 @@ namespace Modules.Conveyor
         [SerializeField]
         private GameObject _grabberModel;
 
+        [SerializeField] private ConveyorBelt _belt;
+        
         private GrabberArm GrabberArm { get; set; }
         
         public bool HasCollectedItemType { get; private set; }
@@ -43,11 +45,12 @@ namespace Modules.Conveyor
 
         public async Awaitable StartGrab(ConveyorItem item)
         {
+            item.transform.position = new Vector3(transform.position.x, item.transform.position.y, item.transform.position.z);
             item.IsBeingGrabbed = true;
             GrabberArm.ExtendArm();
-            await Awaitable.WaitForSecondsAsync(0.2f);
+            await Awaitable.WaitForSecondsAsync(.2f);
             GrabberArm.RetractArm(item.transform);
-            await Awaitable.WaitForSecondsAsync(0.2f);
+            await Awaitable.WaitForSecondsAsync(.2f);
         }
 
         private void OnCollectedItem()
@@ -58,8 +61,9 @@ namespace Modules.Conveyor
         
         private bool IsUnder(ConveyorItem item)
         {
-            Vector3 distanceVector = item.transform.position - transform.position;
-            return distanceVector.y < 0;
+            float distanceToBeltSurface = transform.position.y - _belt.GetSurface();
+            float distanceToItem = (item.transform.position - transform.position).y;
+            return distanceToItem < 0 && distanceToItem <= distanceToBeltSurface;
         }
     }
 }
