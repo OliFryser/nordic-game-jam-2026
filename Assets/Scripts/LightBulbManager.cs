@@ -15,21 +15,23 @@ public class LightBulbManager : MonoBehaviour
 
     private void Start()
     {
-        Play(_sequence);
+        // Play(_sequence);
         _engineButtonPressEmitter.OnPress += OnPress;
         _engineButtonPressEmitter.OnRelease += OnRelease;
     }
     
     private void OnPress(EngineButton button)
     {
-        print(button.Section);
-        if (button.Section != DashboardSection.Lights)
+        print($"{button.Section} {button.InSectionIndex}");
+        if (button.Section != DashboardSection.Lights 
+            // || button.InSectionIndex > 12 
+            || button.InSectionIndex < 0)
         {
             return;
         }
         
         Interrupt();
-        TurnOn(button.InSectionIndex);
+        TurnOn(button.InSectionIndex, true);
     }
     
     private void OnRelease(EngineButton button)
@@ -64,6 +66,13 @@ public class LightBulbManager : MonoBehaviour
                 }
 
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
+                
+                for (int j = 0; j < _lightBulbs.Length; j++)
+                {
+                    _lightBulbs[j].TurnOff();
+                }
+
+                await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
             }
     
             TurnOffAll();
@@ -84,14 +93,16 @@ public class LightBulbManager : MonoBehaviour
         }
     }
 
-    private void TurnOn(int index)
+    private void TurnOn(int index, bool isPlayer)
     {
-        print(index);
-        _lightBulbs[index].TurnOn();
+        int i = index % 12;
+        print(i);
+        _lightBulbs[i].TurnOn(isPlayer);
     }
 
     private void TurnOff(int index)
     {
-        _lightBulbs[index].TurnOff();
+        int i = index % 12;
+        _lightBulbs[i].TurnOff();
     }
 }

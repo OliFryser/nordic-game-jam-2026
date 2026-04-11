@@ -224,4 +224,7 @@ MonoBehaviour:
   _renderer: {fileID: 8723449776979524318}
   _on: {fileID: 2100000, guid: a31c57b455a2e470fbcfec09610b5da2, type: 2}
   _off: {fileID: 2100000, guid: ccb5570dd7ab742af979d8d6cf3d6752, type: 2}
+  _playerOn: {fileID: 2100000, guid: 09c037e0123a542788f2ae7019f9f26d, type: 2}
   _light: {fileID: 2053713853722172762}
+  _onColor: {r: 1, g: 0.38039216, b: 0.38039216, a: 1}
+  _playerOnColor: {r: 0.5686275, g: 0.98039216, b: 0.27450982, a: 1}
