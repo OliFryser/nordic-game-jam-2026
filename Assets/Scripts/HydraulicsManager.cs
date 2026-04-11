@@ -3,6 +3,7 @@ using System.Linq;
 using Input;
 using Modules;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HydraulicsManager : MonoBehaviour
 {
@@ -15,12 +16,21 @@ public class HydraulicsManager : MonoBehaviour
     [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
     [SerializeField] private Hydraulic[] _hydraulics;
     [SerializeField] private bool[] _isPressed;
+    private float[] _dropAmounts;
 
     [SerializeField] private LightbulbMaterialController _lightbulbCorrectConfiguration;
+    [SerializeField] private DashboardSection _dashboardSection;
+    
     
     private void Start()
     {
         _isPressed = new bool[_hydraulics.Length];
+        _dropAmounts = new float[_hydraulics.Length];
+        for (int i = 0; i < _dropAmounts.Length; i++)
+        {
+            _dropAmounts[i] = _dropAmount + Random.Range(-_dropAmount * 0.4f, _dropAmount * 0.4f);
+        }
+        
         foreach (Hydraulic hydraulic in _hydraulics)
         {
             hydraulic.Initialize(_slack);
@@ -55,7 +65,7 @@ public class HydraulicsManager : MonoBehaviour
             }
             else
             {
-                _hydraulics[i].Drop(_dropAmount * Time.deltaTime);
+                _hydraulics[i].Drop(_dropAmounts[i] * Time.deltaTime);
             }
         }
 
@@ -70,7 +80,7 @@ public class HydraulicsManager : MonoBehaviour
 
     private void OnPress(EngineButton button)
     {
-        if (button.Section != DashboardSection.Hydraulics
+        if (button.Section != _dashboardSection
             || button.InSectionIndex < 0
             || button.InSectionIndex >= 12)
         {
@@ -85,7 +95,7 @@ public class HydraulicsManager : MonoBehaviour
     
     private void OnRelease(EngineButton button)
     {
-        if (button.Section != DashboardSection.Hydraulics
+        if (button.Section != _dashboardSection
             || button.InSectionIndex < 0
             || button.InSectionIndex >= 12)
         {
