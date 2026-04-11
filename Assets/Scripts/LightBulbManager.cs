@@ -1,11 +1,14 @@
 using System;
+using System.Linq;
 using Input;
 using Modules;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LightBulbManager : MonoBehaviour
 {
     [SerializeField] private LightBulb[] _lightBulbs;
+    [SerializeField] private LightBulb[] _computerLightBulbs;
     [SerializeField] private float _waitBetweenLightBulbs;
     [SerializeField] private float _waitBetweenSequences;
     [SerializeField] private Sequence _sequence;
@@ -15,9 +18,16 @@ public class LightBulbManager : MonoBehaviour
 
     private void Start()
     {
-        // Play(_sequence);
+        StartNewSequence();
         _engineButtonPressEmitter.OnPress += OnPress;
         _engineButtonPressEmitter.OnRelease += OnRelease;
+    }
+
+    private void StartNewSequence()
+    {
+        _sequence = new Sequence(DashboardSection.Lights, 
+            Enumerable.Range(0, 3).Select(_ => Random.Range(0, 12)).ToArray());
+        Play(_sequence);
     }
     
     private void OnPress(EngineButton button)
@@ -30,7 +40,6 @@ public class LightBulbManager : MonoBehaviour
             return;
         }
         
-        Interrupt();
         TurnOn(button.InSectionIndex, true);
     }
     
@@ -58,18 +67,18 @@ public class LightBulbManager : MonoBehaviour
         {
             foreach (int i in _sequence.RelativeSequenceNumbers)
             {
-                for (int j = 0; j < _lightBulbs.Length; j++)
+                for (int j = 0; j < _computerLightBulbs.Length; j++)
                 {
                     if (!_isPlaying) return;
-                    if (i == j) _lightBulbs[j].TurnOn();
-                    else _lightBulbs[j].TurnOff();
+                    if (i == j) _computerLightBulbs[j].TurnOn();
+                    else _computerLightBulbs[j].TurnOff();
                 }
 
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
                 
-                for (int j = 0; j < _lightBulbs.Length; j++)
+                for (int j = 0; j < _computerLightBulbs.Length; j++)
                 {
-                    _lightBulbs[j].TurnOff();
+                    _computerLightBulbs[j].TurnOff();
                 }
 
                 await Awaitable.WaitForSecondsAsync(_waitBetweenLightBulbs);
