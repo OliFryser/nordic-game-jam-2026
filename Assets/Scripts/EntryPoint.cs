@@ -9,6 +9,7 @@ public class EntryPoint : MonoBehaviour
    [SerializeField] private LightBulbManager _lightBulbManager;
    [SerializeField] private LightbulbSetManager _lightbulbSetManager;
    [SerializeField] private ConveyorManager _conveyorManager;
+   [SerializeField] private VFXManager _vfxManager;
    
     private void Start()
     {
@@ -18,5 +19,6 @@ public class EntryPoint : MonoBehaviour
         _lightBulbManager.Initialize(battery);
         _lightbulbSetManager.Initialize(battery);
         _conveyorManager.Initialize(battery);
+        _vfxManager.Initialize(battery);
     }
 }
