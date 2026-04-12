@@ -74,6 +74,11 @@ public class HydraulicsManager : MonoBehaviour
             bool on = hydraulic.IsRegulated(_slack);
             hydraulic.Set(on);
         }
+
+        foreach (Hydraulic hydraulic in _hydraulics.Where(h => h.IsRegulated(_slack)))
+        {
+            _battery.AddCharge(Time.deltaTime);
+        }
         
         _lightbulbCorrectConfiguration.Set(_hydraulics.All(h => h.IsRegulated(_slack)));
     }

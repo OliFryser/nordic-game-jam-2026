@@ -17,6 +17,8 @@ public class LightBulbManager : MonoBehaviour
     [SerializeField] private SequenceOnCompleteEmitter _sequenceOnCompleteEmitter;
     private CancellationTokenSource _cts;
     private bool _isPlaying;
+    private Battery _battery;
+    [SerializeField] private float _batterChargeAmount;
 
     private void Start()
     {
@@ -131,6 +133,8 @@ public class LightBulbManager : MonoBehaviour
             lightBulb.TurnOn(true);
         }
         
+        _battery.AddCharge(_batterChargeAmount);
+        
         await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
         
         TurnOffAll();
@@ -155,5 +159,10 @@ public class LightBulbManager : MonoBehaviour
     {
         int i = index % 12;
         _lightBulbs[i].TurnOff();
+    }
+
+    public void Initialize(Battery battery)
+    {
+        _battery = battery;
     }
 }

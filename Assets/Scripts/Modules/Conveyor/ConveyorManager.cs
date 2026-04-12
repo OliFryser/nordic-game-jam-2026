@@ -32,8 +32,11 @@ namespace Modules.Conveyor
 
         [SerializeField] private float _spawningDelay = 1f;
         
-        public bool AwaitingRestart { get; set; }
+        private Battery _battery;
+        [SerializeField] private float _batteryChargeAmount;
 
+        public bool AwaitingRestart { get; set; }
+        
         private void Start()
         {
             StartGame();
@@ -170,12 +173,18 @@ namespace Modules.Conveyor
             {
                 // Fire and forget
                 activatedGrabber.StartGrab(item, _grabberSpeed);
+                _battery.AddCharge(_batteryChargeAmount);
             }
             else
             {
                 // Fire and forget
                 activatedGrabber.StartFailGrab(_grabberSpeed);
             }
+        }
+
+        public void Initialize(Battery battery)
+        {
+            _battery = battery;
         }
     }
 }
