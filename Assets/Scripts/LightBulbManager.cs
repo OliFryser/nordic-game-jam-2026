@@ -67,7 +67,9 @@ public class LightBulbManager : MonoBehaviour
     
     private void OnRelease(EngineButton button)
     {
-        if (button.Section != DashboardSection.Lights)
+        if (button.Section != DashboardSection.Lights
+            || button.InSectionIndex < 0
+            || button.InSectionIndex >= 12)
         {
             return;
         }

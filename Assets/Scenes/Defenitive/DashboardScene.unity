@@ -3194,7 +3194,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -3389,6 +3389,10 @@ PrefabInstance:
     - target: {fileID: 7275241685604331976, guid: c6f26fd5bfbd842ef8f8adc9e747f51a, type: 3}
       propertyPath: _dashboardSection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275241685604331976, guid: c6f26fd5bfbd842ef8f8adc9e747f51a, type: 3}
+      propertyPath: _batteryChargeAmount
+      value: 0.0025
       objectReference: {fileID: 0}
     - target: {fileID: 7275241685604331976, guid: c6f26fd5bfbd842ef8f8adc9e747f51a, type: 3}
       propertyPath: _hydraulics.Array.size
@@ -4497,6 +4501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery
       objectReference: {fileID: 0}
+    - target: {fileID: 5779652649369690883, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
+      propertyPath: _batteryDrainRate
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 9217082189320029245, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
       propertyPath: m_LocalScale.y
       value: 0
@@ -5277,6 +5285,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3824292854575015527, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
+      propertyPath: _batteryChargeAmount
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5067434385841863132, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -6453,7 +6465,7 @@ MonoBehaviour:
   - {fileID: 1026407029}
   _engineButtonPressEmitter: {fileID: 11400000, guid: a46a2a569917a413cb7b444b3babeec4, type: 2}
   _timeToShowWinLight: 1
-  _batteryChargeAmount: 0
+  _batteryChargeAmount: 0.2
 --- !u!1001 &1541725769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8540,6 +8552,10 @@ PrefabInstance:
     - target: {fileID: 5929311871700111271, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384111699700984303, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
+      propertyPath: _batterChargeAmount
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8384111699700984303, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
       propertyPath: _lightBulbs.Array.size

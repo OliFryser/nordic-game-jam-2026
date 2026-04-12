@@ -65,4 +65,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _isPressed: 
+  _batteryChargeAmount: 0
   _lightbulbCorrectConfiguration: {fileID: 0}
+  _dashboardSection: 0

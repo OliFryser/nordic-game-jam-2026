@@ -12,6 +12,8 @@ public class BatteryManager : MonoBehaviour
     [SerializeField] private Material _batteryLevelMaterial;
     [SerializeField] private Color _batteryEmptyColor;
     [SerializeField] private Color _batteryFullColor;
+
+    [SerializeField] private float _batteryDrainRate;
     
     public Battery Battery { get; private set; }
     
@@ -26,6 +28,11 @@ public class BatteryManager : MonoBehaviour
     private void Awake()
     {
         _batteryLevelMaterial.SetColor("_BaseColor", _batteryEmptyColor);
+    }
+
+    private void Update()
+    {
+        Battery.RemoveCharge(_batteryDrainRate * Time.deltaTime);
     }
 
     private void OnEnable()
