@@ -1,6 +1,7 @@
 using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Modules
 {
@@ -12,6 +13,9 @@ namespace Modules
         [SerializeField] private Transform _start;
         [SerializeField] private Transform _end;
         [SerializeField] private SoundManager _soundManager;
+
+        [SerializeField] private FadeoutController _fadeoutController;
+        
         
         private bool _hasBeenPushed;
         
@@ -30,6 +34,8 @@ namespace Modules
                 .BindToRotation(_leverHandle);
             
             _soundManager.Play(Sound.Alarm);
+            
+            _fadeoutController.FadeOut();
         }
     }
 }
