@@ -31,7 +31,6 @@ public class VFXManager : MonoBehaviour
             Instantiate(_sparks, position, _sparks.transform.rotation);
             float waitTime = (1 - _battery.Charge + .2f) * 5f;
             // float waitTime = .5f;
-            print($"Sparking. Waiting for {waitTime} seconds");
             await Awaitable.WaitForSecondsAsync(waitTime);
         }
     }
@@ -44,7 +43,6 @@ public class VFXManager : MonoBehaviour
             Instantiate(_smoke, position, _smoke.transform.rotation);
             float waitTime = (1 - _battery.Charge + .2f) * 20f;
             // float waitTime = .5f;
-            print($"Sparking. Waiting for {waitTime} seconds");
             await Awaitable.WaitForSecondsAsync(waitTime);
         }
     }
