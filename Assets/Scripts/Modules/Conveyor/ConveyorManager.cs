@@ -11,6 +11,7 @@ namespace Modules.Conveyor
     public class ConveyorManager : MonoBehaviour
     {
         [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
+        [SerializeField] private SoundManager _soundManager;
         [SerializeField] private Transform _itemSpawnerTransform;
         [SerializeField] private Transform _itemDestroyerTransform;
         [SerializeField] private ConveyorBelt _lowerBelt;
@@ -164,6 +165,8 @@ namespace Modules.Conveyor
             
             if (activatedGrabber.HasCollectedItemType)
                 return;
+            
+            _soundManager.Play(Sound.ConveyorCrane);
             
             ConveyorItem item = 
                 activatedGrabber.TryGetValidItemUnderneath(

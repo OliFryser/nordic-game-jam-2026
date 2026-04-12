@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
         };
         
         print("Playing " + clip);
+        _audioSource.volume = Sound.ConveyorCrane == sound ? .5f : 1f;
         _audioSource.pitch = Random.Range(0.9f, 1.1f);
         _audioSource.PlayOneShot(clip);
     }
