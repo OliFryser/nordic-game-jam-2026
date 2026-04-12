@@ -15,9 +15,9 @@ public class CameraBob : MonoBehaviour
             .WithDelay(Random.value)      // Desync X and Y
             .Bind(x => 
             {
-                var pos = transform.localPosition;
+                var pos = transform.position;
                 pos.x = x;
-                transform.localPosition = pos;
+                transform.position = pos;
             });
 
         // Wiggle on Y axis
@@ -26,7 +26,7 @@ public class CameraBob : MonoBehaviour
             .WithLoops(-1, LoopType.Yoyo)
             .Bind(y => 
             {
-                var pos = transform.localPosition;
+                var pos = transform.position;
                 pos.y = y;
                 transform.localPosition = pos;
             });

@@ -1960,6 +1960,7 @@ MonoBehaviour:
   _end: {fileID: 1407327259}
   _soundManager: {fileID: 436951475}
   _fadeoutController: {fileID: 1082724344}
+  _screenShaker: {fileID: 676795969}
 --- !u!4 &462594281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7976707922390961978, guid: 191a91ce29fc04276b2e1df33292926f, type: 3}
@@ -3087,6 +3088,8 @@ GameObject:
   - component: {fileID: 676795966}
   - component: {fileID: 676795965}
   - component: {fileID: 676795968}
+  - component: {fileID: 676795969}
+  - component: {fileID: 676795970}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3212,6 +3215,35 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &676795969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676795964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf26b92595f4ebeb2e79d5f374ff9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenShaker
+  maxIntensity: 0.1
+  rampUpDuration: 5
+  shakeDuration: 10
+--- !u!114 &676795970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676795964}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3598138d5abb4b118f7b5214b7b73fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraBob
+  intensity: 0.05
+  speed: 1.5
 --- !u!1001 &688419578
 PrefabInstance:
   m_ObjectHideFlags: 0
