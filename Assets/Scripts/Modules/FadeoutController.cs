@@ -11,11 +11,6 @@ namespace Modules
         [SerializeField] private Image _whiteScreen;
         [SerializeField] private float _fadeoutTime = 10f;
 
-        private void Start()
-        {
-            FadeOut();
-        }
-
         public void FadeOut()
         {
             Color startColor = new Color(1, 1, 1, 0);
