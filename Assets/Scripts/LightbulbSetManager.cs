@@ -20,6 +20,7 @@ public class LightbulbSetManager : MonoBehaviour
 
     [SerializeField] private Renderer _cable;
     [SerializeField] private CableManager _cableManager;
+    private bool _isCompleting;
 
 
     private void Start()
@@ -101,6 +102,10 @@ public class LightbulbSetManager : MonoBehaviour
 
     private async Awaitable OnSetComplete()
     {
+        if (_isCompleting) return;
+        
+        _isCompleting = true;
+        
         // Light all
         foreach (LightBulb lightBulb in _computerLightBulbs)
         {
@@ -108,7 +113,7 @@ public class LightbulbSetManager : MonoBehaviour
         }
 
         _battery.AddCharge(_batteryChargeAmount);
-        _cableManager.TurnOnCable(_cable, 2f);
+        //_cableManager.TurnOnCable(_cable, 2f);
 
         // wait
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight);
@@ -120,8 +125,9 @@ public class LightbulbSetManager : MonoBehaviour
         }
 
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight / 4f);
-
         StartNewSet();
+        
+        _isCompleting = false;
     }
 
     public void Initialize(Battery battery)
