@@ -17,15 +17,19 @@ public class BatteryManager : MonoBehaviour
     
     private float ChargeAmount => 1f / 6f;
 
+    public void Initialize(Battery battery)
+    {
+        Battery = battery;
+        Battery.OnBatteryLevelChanged += OnBatteryLevelChanged;
+    }
+    
     private void Awake()
     {
-        Battery = new Battery();
         _batteryLevelMaterial.SetColor("_BaseColor", _batteryEmptyColor);
     }
 
     private void OnEnable()
     {
-        Battery.OnBatteryLevelChanged += OnBatteryLevelChanged;
         _sequenceOnCompleteEmitter.OnSequenceComplete += OnSequenceComplete;
     }
     

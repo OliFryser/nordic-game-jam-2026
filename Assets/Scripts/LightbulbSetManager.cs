@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Input;
+using Modules;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,8 @@ public class LightbulbSetManager : MonoBehaviour
     [SerializeField] private float _timeToShowWinLight;
 
     private LightSet _lightSet;
+    private Battery _battery;
+    [SerializeField] private float _batteryChargeAmount;
 
 
     private void Start()
@@ -98,6 +101,8 @@ public class LightbulbSetManager : MonoBehaviour
             lightBulb.TurnOn(true);
         }
 
+        _battery.AddCharge(_batteryChargeAmount);
+        
         // wait
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight);
 
@@ -110,6 +115,11 @@ public class LightbulbSetManager : MonoBehaviour
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight / 4f);
 
         StartNewSet();
+    }
+
+    public void Initialize(Battery battery)
+    {
+        _battery = battery;
     }
 }
 
