@@ -84,9 +84,16 @@ public class HydraulicsManager : MonoBehaviour
         foreach (Hydraulic hydraulic in _hydraulics.Where(h => h.IsRegulated(_slack)))
         {
             _battery.AddCharge(Time.deltaTime * _batteryChargeAmount);
+            ActivateCables();
         }
         
         _lightbulbCorrectConfiguration.Set(_hydraulics.All(h => h.IsRegulated(_slack)));
+    }
+
+    private void ActivateCables()
+    {
+        _cableManager.TurnOnCable(_cableLeft, 2f);
+        _cableManager.TurnOnCable(_cableRight, 2f);
     }
 
     private void OnPress(EngineButton button)

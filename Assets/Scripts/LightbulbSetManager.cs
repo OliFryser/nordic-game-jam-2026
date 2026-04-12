@@ -108,6 +108,7 @@ public class LightbulbSetManager : MonoBehaviour
         }
 
         _battery.AddCharge(_batteryChargeAmount);
+        _cableManager.TurnOnCable(_cable, 2f);
 
         // wait
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight);

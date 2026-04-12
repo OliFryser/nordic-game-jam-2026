@@ -140,6 +140,7 @@ public class LightBulbManager : MonoBehaviour
         }
         
         _battery.AddCharge(_batterChargeAmount);
+        _cableManager.TurnOnCable(_cable, 1f);
         
         await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
         

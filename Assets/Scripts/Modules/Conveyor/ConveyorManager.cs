@@ -180,6 +180,7 @@ namespace Modules.Conveyor
                 // Fire and forget
                 activatedGrabber.StartGrab(item, _grabberSpeed);
                 _battery.AddCharge(_batteryChargeAmount);
+                _cableManager.TurnOnCable(_cable, .5f);
             }
             else
             {

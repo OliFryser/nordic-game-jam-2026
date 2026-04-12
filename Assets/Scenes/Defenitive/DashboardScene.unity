@@ -845,6 +845,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fef0c06325432aae361ce8659f7adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightBulb
+--- !u!23 &204925197 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7527485187053769498, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+  m_PrefabInstance: {fileID: 1665758480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &218928701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1959,6 +1964,7 @@ MonoBehaviour:
   _start: {fileID: 1003283300}
   _end: {fileID: 1407327259}
   _soundManager: {fileID: 436951475}
+  _fadeoutController: {fileID: 0}
 --- !u!4 &462594281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7976707922390961978, guid: 191a91ce29fc04276b2e1df33292926f, type: 3}
@@ -4560,6 +4566,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 449829829}
     - target: {fileID: 5779652649369690883, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
+      propertyPath: _cable1
+      value: 
+      objectReference: {fileID: 1998959379}
+    - target: {fileID: 5779652649369690883, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
+      propertyPath: _cable2
+      value: 
+      objectReference: {fileID: 204925197}
+    - target: {fileID: 5779652649369690883, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
+      propertyPath: _cableManager
+      value: 
+      objectReference: {fileID: 1894058444}
+    - target: {fileID: 5779652649369690883, guid: aea967dceddf04e4cb5cc4bf9df77201, type: 3}
       propertyPath: _batteryDrainRate
       value: 0.05
       objectReference: {fileID: 0}
@@ -5412,6 +5430,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1665758481}
     - target: {fileID: 3824292854575015527, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
+      propertyPath: _cableManager
+      value: 
+      objectReference: {fileID: 1894058444}
+    - target: {fileID: 3824292854575015527, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
       propertyPath: _soundManager
       value: 
       objectReference: {fileID: 436951475}
@@ -5472,6 +5494,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
+--- !u!23 &1092214281 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1430945124203805465, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+  m_PrefabInstance: {fileID: 1665758480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1129612812
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +6013,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5801079156876756351, guid: b26b0b7a5940140d7ac1e206d383aca2, type: 3}
   m_PrefabInstance: {fileID: 1355067420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1357645202 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6155204738067573897, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+  m_PrefabInstance: {fileID: 1665758480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1367119231
 GameObject:
@@ -6757,6 +6789,8 @@ MonoBehaviour:
   _timeToShowWinLight: 1
   _batteryChargeAmount: 0.15
   _soundManager: {fileID: 436951475}
+  _cable: {fileID: 1357645202}
+  _cableManager: {fileID: 1894058444}
 --- !u!1001 &1541725769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7668,7 +7702,7 @@ PrefabInstance:
     - target: {fileID: -6171852904617523981, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 4f423e67bbd6dce468ab9bb29ed9b387, type: 2}
+      objectReference: {fileID: 2100000, guid: 0898caccfa88a9f44b9512b39954afd2, type: 2}
     - target: {fileID: -5174998623976215188, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7700,7 +7734,7 @@ PrefabInstance:
     - target: {fileID: -572518626239383973, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 4f423e67bbd6dce468ab9bb29ed9b387, type: 2}
+      objectReference: {fileID: 2100000, guid: 0898caccfa88a9f44b9512b39954afd2, type: 2}
     - target: {fileID: -382719614964146884, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7712,7 +7746,7 @@ PrefabInstance:
     - target: {fileID: -346942139177839340, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 6655cc55be2ecbe43a3d72aca37f313c, type: 2}
+      objectReference: {fileID: 2100000, guid: 0898caccfa88a9f44b9512b39954afd2, type: 2}
     - target: {fileID: 61166369392443744, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -8214,6 +8248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894058443}
+  - component: {fileID: 1894058444}
   m_Layer: 0
   m_Name: Cable Manager
   m_TagString: Untagged
@@ -8236,6 +8271,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894058444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894058442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f789dbc4574e29857849dad3f58787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CableManager
+  _cableDefaultMaterial: {fileID: 2100000, guid: 0898caccfa88a9f44b9512b39954afd2, type: 2}
+  _cableActiveMaterial: {fileID: 2100000, guid: 6655cc55be2ecbe43a3d72aca37f313c, type: 2}
 --- !u!1 &1924386173
 GameObject:
   m_ObjectHideFlags: 0
@@ -8539,6 +8588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fef0c06325432aae361ce8659f7adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightBulb
+--- !u!23 &1998959379 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4013979438840300013, guid: 01a45a371aed6604e9ad91dd6f73fd32, type: 3}
+  m_PrefabInstance: {fileID: 1665758480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2005846621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8900,6 +8954,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8384111699700984303, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
+      propertyPath: _cable
+      value: 
+      objectReference: {fileID: 1092214281}
+    - target: {fileID: 8384111699700984303, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
+      propertyPath: _cableManager
+      value: 
+      objectReference: {fileID: 1894058444}
     - target: {fileID: 8384111699700984303, guid: 086a8ed8908bd48d59c41b85059e232e, type: 3}
       propertyPath: _soundManager
       value: 
