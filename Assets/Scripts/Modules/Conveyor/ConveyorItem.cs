@@ -40,5 +40,10 @@ namespace Modules.Conveyor
                 transform.position = new Vector3(transform.position.x, CurrentBelt.GetSurface() + transform.localScale.y / 2, transform.position.z);
             }
         }
+
+        public void ResetItem()
+        {
+            IsBeingGrabbed = false;
+        }
     }
 }

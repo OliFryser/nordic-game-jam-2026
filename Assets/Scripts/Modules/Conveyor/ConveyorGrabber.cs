@@ -30,6 +30,11 @@ namespace Modules.Conveyor
         {
             GrabberArm = Instantiate(_grabberModel, transform).GetComponent<GrabberArm>();
         }
+
+        public void ResetGrabber()
+        {
+            HasCollectedItemType = false;
+        }
         
         [CanBeNull]
         public ConveyorItem TryGetValidItemUnderneath(IEnumerable<ConveyorItem> compatibleItems)

@@ -32,13 +32,31 @@ namespace Modules.Conveyor
 
         [SerializeField] private float _spawningDelay = 1f;
         
+        public bool AwaitingRestart { get; set; }
 
         private void Start()
+        {
+            StartGame();
+        }
+
+        public void StartGame()
         {
             AssignTypesToItemsAndGrabbers();
             _items.Shuffle(new Random());
             SpawnItemsWithDelay();
         }
+
+        private async void ResetGame()
+        {
+            if (AwaitingRestart)
+                return;
+            AwaitingRestart = true;
+            await Awaitable.WaitForSecondsAsync(2f);
+            _grabbers.ForEach(g => g.ResetGrabber());
+            _items.ForEach(i => i.ResetItem());
+            AwaitingRestart = false;
+        }
+
 
         private void AssignTypesToItemsAndGrabbers()
         {
@@ -94,6 +112,7 @@ namespace Modules.Conveyor
         {
             if (_grabbers.TrueForAll(g => g.HasCollectedItemType))
             {
+                ResetGame();
                 return;
             }
             MoveConveyorItems();
@@ -149,7 +168,6 @@ namespace Modules.Conveyor
 
             if (item != null)
             {
-                _items.Remove(item);
                 // Fire and forget
                 activatedGrabber.StartGrab(item, _grabberSpeed);
             }
