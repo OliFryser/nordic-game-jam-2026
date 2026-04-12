@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
         };
         
         print("Playing " + clip);
-        _audioSource.pitch = Random.Range(0.95f, 1.05f);
+        _audioSource.pitch = Random.Range(0.9f, 1.1f);
         _audioSource.PlayOneShot(clip);
     }
 }

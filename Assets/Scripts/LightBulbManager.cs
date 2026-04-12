@@ -19,7 +19,8 @@ public class LightBulbManager : MonoBehaviour
     private bool _isPlaying;
     private Battery _battery;
     [SerializeField] private float _batterChargeAmount;
-
+    [SerializeField] private SoundManager _soundManager;
+    
     private void Start()
     {
         StartNewSequence();
@@ -61,6 +62,8 @@ public class LightBulbManager : MonoBehaviour
             return;
         }
         
+        Sound sound = Random.value < .5f ? Sound.Click1 : Sound.Click2;
+        _soundManager.Play(sound);
         _sequence.Enter(button.InSectionIndex);
         TurnOn(button.InSectionIndex, true);
     }
