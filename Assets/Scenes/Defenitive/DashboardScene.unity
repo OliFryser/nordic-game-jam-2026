@@ -6635,7 +6635,7 @@ MonoBehaviour:
   - {fileID: 1026407029}
   _engineButtonPressEmitter: {fileID: 11400000, guid: a46a2a569917a413cb7b444b3babeec4, type: 2}
   _timeToShowWinLight: 1
-  _batteryChargeAmount: 0.2
+  _batteryChargeAmount: 0.15
   _soundManager: {fileID: 436951475}
 --- !u!1001 &1541725769
 PrefabInstance:
