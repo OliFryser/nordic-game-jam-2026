@@ -18,6 +18,7 @@ namespace Modules
 
             LMotion.Create(startColor, endColor, 10f)
                 .WithEase(Ease.Linear)
+                .WithDelay(2f)
                 .BindToColor(_whiteScreen);
         }
     }
