@@ -16,7 +16,7 @@ public class LightbulbSetManager : MonoBehaviour
     private LightSet _lightSet;
     private Battery _battery;
     [SerializeField] private float _batteryChargeAmount;
-
+    [SerializeField] private SoundManager _soundManager;
 
     private void Start()
     {
@@ -38,16 +38,16 @@ public class LightbulbSetManager : MonoBehaviour
     private void StartNewSet()
     {
         int number = Random.Range(3, 7);
-        
+
         HashSet<int> set = new();
-        
+
         while (set.Count < number)
         {
             set.Add(Random.Range(0, 12));
         }
 
         _lightSet = new LightSet(set.ToArray());
-        
+
         for (int i = 0; i < _computerLightBulbs.Length; i++)
         {
             if (set.Contains(i))
@@ -70,6 +70,8 @@ public class LightbulbSetManager : MonoBehaviour
             return;
         }
 
+        Sound sound = Random.value < .5f ? Sound.Click1 : Sound.Click2;
+        _soundManager.Play(sound);
         _lightSet.Press(button.InSectionIndex);
         _lightBulbs[button.InSectionIndex].TurnOn(player: true);
         if (_lightSet.IsComplete())
@@ -102,7 +104,7 @@ public class LightbulbSetManager : MonoBehaviour
         }
 
         _battery.AddCharge(_batteryChargeAmount);
-        
+
         // wait
         await Awaitable.WaitForSecondsAsync(_timeToShowWinLight);
 
