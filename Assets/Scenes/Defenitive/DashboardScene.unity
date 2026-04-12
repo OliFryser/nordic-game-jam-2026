@@ -5323,6 +5323,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3824292854575015527, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
+      propertyPath: _soundManager
+      value: 
+      objectReference: {fileID: 436951475}
+    - target: {fileID: 3824292854575015527, guid: 11d5b0ab6fd8df54a8352fd81044dbcc, type: 3}
       propertyPath: _batteryChargeAmount
       value: 0.2
       objectReference: {fileID: 0}
