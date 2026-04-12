@@ -14,6 +14,7 @@ public class BatteryManager : MonoBehaviour
     [SerializeField] private Color _batteryFullColor;
 
     [SerializeField] private float _batteryDrainRate;
+    [SerializeField] private Lever _lever;
     
     public Battery Battery { get; private set; }
     
@@ -50,6 +51,16 @@ public class BatteryManager : MonoBehaviour
         LMotion.Create(previousColor, newColor, 0.2f)
             .WithEase(Ease.InOutQuad)
             .Bind((c) => _batteryLevelMaterial.SetColor("_BaseColor", c));
+
+        if (Battery.Charge > 0.99f)
+        {
+            _lever.Push();
+            FreezeBattery();
+        }
+    }
+
+    private void FreezeBattery()
+    {
     }
 
     private void OnDisable()
