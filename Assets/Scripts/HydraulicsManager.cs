@@ -80,20 +80,39 @@ public class HydraulicsManager : MonoBehaviour
             bool on = hydraulic.IsRegulated(_slack);
             hydraulic.Set(on);
         }
-
+        
         foreach (Hydraulic hydraulic in _hydraulics.Where(h => h.IsRegulated(_slack)))
         {
             _battery.AddCharge(Time.deltaTime * _batteryChargeAmount);
-            ActivateCables();
         }
+
+        HandleCables();
         
         _lightbulbCorrectConfiguration.Set(_hydraulics.All(h => h.IsRegulated(_slack)));
     }
 
+    private void HandleCables()
+    {
+        if (_hydraulics.Any(h => h.IsRegulated(_slack)))
+        {
+            ActivateCables();
+        }
+        else
+        {
+            DeActivateCables();
+        }
+    }
+
     private void ActivateCables()
     {
-        _cableManager.TurnOnCable(_cableLeft, 2f);
-        _cableManager.TurnOnCable(_cableRight, 2f);
+        _cableManager.TurnOnCable(_cableLeft);
+        _cableManager.TurnOnCable(_cableRight);
+    }
+
+    private void DeActivateCables()
+    {
+        _cableManager.TurnOffCable(_cableLeft);
+        _cableManager.TurnOffCable(_cableRight);
     }
 
     private void OnPress(EngineButton button)

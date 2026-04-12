@@ -12,4 +12,14 @@ public class CableManager : MonoBehaviour
       cable.material = _cableDefaultMaterial;
    }
 
+   public void TurnOnCable(Renderer cable)
+   {
+      cable.material = _cableActiveMaterial;
+   }
+
+   public void TurnOffCable(Renderer cable)
+   {
+      cable.material = _cableDefaultMaterial;
+   }
+
 }
