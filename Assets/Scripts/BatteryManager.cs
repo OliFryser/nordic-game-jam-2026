@@ -17,7 +17,8 @@ public class BatteryManager : MonoBehaviour
     [SerializeField] private Lever _lever;
     
     public Battery Battery { get; private set; }
-    
+
+    private bool ShouldDrainBattery { get; set; } = true;
     private float ChargeAmount => 1f / 6f;
 
     public void Initialize(Battery battery)
@@ -33,8 +34,12 @@ public class BatteryManager : MonoBehaviour
 
     private void Update()
     {
-        Battery.RemoveCharge(_batteryDrainRate * Time.deltaTime);
+        if (ShouldDrainBattery)
+        {
+            Battery.RemoveCharge(_batteryDrainRate * Time.deltaTime);
+        }
     }
+
 
     private void OnEnable()
     {
@@ -55,12 +60,8 @@ public class BatteryManager : MonoBehaviour
         if (Battery.Charge > 0.99f)
         {
             _lever.Push();
-            FreezeBattery();
+            ShouldDrainBattery = false;
         }
-    }
-
-    private void FreezeBattery()
-    {
     }
 
     private void OnDisable()
