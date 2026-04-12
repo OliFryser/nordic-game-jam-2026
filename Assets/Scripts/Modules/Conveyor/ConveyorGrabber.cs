@@ -67,8 +67,8 @@ namespace Modules.Conveyor
         private bool IsUnder(ConveyorItem item)
         {
             float distanceToBeltSurface = transform.position.y - _belt.GetSurface();
-            float distanceToItem = (item.transform.position - transform.position).y;
-            return distanceToItem < 0 && distanceToItem <= distanceToBeltSurface;
+            float distanceToItem = transform.position.y - item.transform.position.y;
+            return distanceToItem > 0 && distanceToItem <= distanceToBeltSurface;
         }
 
         public async Awaitable StartFailGrab(float grabberSpeed)

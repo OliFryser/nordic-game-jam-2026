@@ -108,7 +108,6 @@ namespace Modules.Conveyor
                     continue;
                 if (conveyorItem.CurrentBelt == null)
                 {
-                    Debug.Log("Falling towards destroyer");
                     conveyorItem.FallTowardsBelt(Time.deltaTime, _fallSpeed, skipSurfaceCheck: true);
                     if (conveyorItem.transform.position.y < _itemDestroyerTransform.position.y)
                     {
