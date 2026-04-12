@@ -16,6 +16,8 @@ namespace Modules.Conveyor
         
         private GrabberArm GrabberArm { get; set; }
         
+        private bool IsExtending { get; set; }
+        
         public bool HasCollectedItemType { get; private set; }
         
         private void Awake()
@@ -43,20 +45,23 @@ namespace Modules.Conveyor
             return null;
         }
 
-        public async Awaitable StartGrab(ConveyorItem item)
+        public async Awaitable StartGrab(ConveyorItem item, float grabberSpeed)
         {
+            if (IsExtending)
+                return;
+            IsExtending = true;
             item.transform.position = new Vector3(transform.position.x, item.transform.position.y, item.transform.position.z);
             item.IsBeingGrabbed = true;
-            GrabberArm.ExtendArm();
-            await Awaitable.WaitForSecondsAsync(.2f);
-            GrabberArm.RetractArm(item.transform);
-            await Awaitable.WaitForSecondsAsync(.2f);
+            GrabberArm.ExtendArm(grabberSpeed);
+            await Awaitable.WaitForSecondsAsync(grabberSpeed);
+            GrabberArm.RetractArm(item.transform, grabberSpeed);
+            await Awaitable.WaitForSecondsAsync(grabberSpeed);
+            IsExtending = false;
         }
 
         private void OnCollectedItem()
         {
             HasCollectedItemType = true;
-            GetComponent<Renderer>().material.color = Color.green;
         }
         
         private bool IsUnder(ConveyorItem item)
@@ -64,6 +69,18 @@ namespace Modules.Conveyor
             float distanceToBeltSurface = transform.position.y - _belt.GetSurface();
             float distanceToItem = (item.transform.position - transform.position).y;
             return distanceToItem < 0 && distanceToItem <= distanceToBeltSurface;
+        }
+
+        public async Awaitable StartFailGrab(float grabberSpeed)
+        {
+            if (IsExtending)
+                return;
+            IsExtending = true;
+            GrabberArm.ExtendFailArm(grabberSpeed);
+            await Awaitable.WaitForSecondsAsync(grabberSpeed);
+            GrabberArm.RetractFailArm(grabberSpeed);
+            await Awaitable.WaitForSecondsAsync(grabberSpeed);
+            IsExtending = false;
         }
     }
 }

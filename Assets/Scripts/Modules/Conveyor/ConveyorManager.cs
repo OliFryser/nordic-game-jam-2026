@@ -17,18 +17,21 @@ namespace Modules.Conveyor
         [SerializeField] private ConveyorBelt _upperBelt;
         [SerializeField] private List<ConveyorGrabber> _grabbers;
 
+        [SerializeField]
+        private List<ConveyorItem> _items;
+
+        [SerializeField] private List<GameObject> _itemModels;
+        
         [Header("Conveyor Speeds")] 
         [SerializeField]
         private float _fallSpeed = 8f;
         [SerializeField]
         private float _beltSpeed = 5f;
+        [SerializeField]
+        private float _grabberSpeed = .1f;
 
         [SerializeField] private float _spawningDelay = 1f;
         
-        [SerializeField]
-        private List<ConveyorItem> _items;
-
-        [SerializeField] private List<GameObject> _itemModels;
 
         private void Start()
         {
@@ -43,14 +46,24 @@ namespace Modules.Conveyor
             {
                 ConveyorGrabber grabber = _grabbers[i];
                 ConveyorItem item = _items[i];
-                int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length + 1;
+                //int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length;
+
+                int typeIndex = i switch
+                {
+                    _ when i < 3 => 0,
+                    _ when i < 6 => 1,
+                    _ when i < 9 => 2,
+                    _ when i < 12 => 3,
+                    _ => throw new ArgumentOutOfRangeException()
+                };
+                
                 ConveyorItemType type = (ConveyorItemType)typeIndex;
                 grabber.CompatibleType = type;
                 GameObject prefab = _itemModels[typeIndex];
                 item.ItemType = type;
                 Instantiate(prefab, item.transform);
                 GameObject iconOnGrabber = Instantiate(prefab, grabber.transform);
-                iconOnGrabber.transform.Translate(new Vector3(0f, 0f, -.75f));
+                iconOnGrabber.transform.Translate(new Vector3(0f, .5f, -.5f));
             }
         }
 
@@ -121,7 +134,7 @@ namespace Modules.Conveyor
             conveyorItem.transform.localPosition = _itemSpawnerTransform.position;
         }
 
-        private async void OnEngineButtonPress(EngineButton button)
+        private void OnEngineButtonPress(EngineButton button)
         {
             if (button.Section != DashboardSection.ConveyorBelt)
                 return;
@@ -137,9 +150,14 @@ namespace Modules.Conveyor
 
             if (item != null)
             {
-                await activatedGrabber.StartGrab(item);
                 _items.Remove(item);
-                Destroy(item.gameObject);
+                // Fire and forget
+                activatedGrabber.StartGrab(item, _grabberSpeed);
+            }
+            else
+            {
+                // Fire and forget
+                activatedGrabber.StartFailGrab(_grabberSpeed);
             }
         }
     }
