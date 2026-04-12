@@ -2,9 +2,10 @@ namespace Input
 {
     public enum DashboardSection
     {
-        ConveyorBelt,
-        Lights,
-        HydraulicsLeft,
-        HydraulicsRight
+        Lights = 0,
+        HydraulicsLeft = 1,
+        HydraulicsRight = 2,
+        ConveyorBelt = 3,
+        SetLights = 4,
     }
 }
