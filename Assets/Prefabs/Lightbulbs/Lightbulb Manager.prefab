@@ -50,3 +50,4 @@ MonoBehaviour:
   _waitBetweenSequences: 1
   _engineButtonPressEmitter: {fileID: 11400000, guid: a46a2a569917a413cb7b444b3babeec4, type: 2}
   _sequenceOnCompleteEmitter: {fileID: 11400000, guid: 5e7a6267c2721466c951ea0215677073, type: 2}
+  _batterChargeAmount: 0.005

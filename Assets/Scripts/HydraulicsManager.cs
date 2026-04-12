@@ -18,10 +18,12 @@ public class HydraulicsManager : MonoBehaviour
     [SerializeField] private bool[] _isPressed;
     private float[] _dropAmounts;
 
-    [SerializeField] private LightbulbMaterialController _lightbulbCorrectConfiguration;
-    [SerializeField] private DashboardSection _dashboardSection;
     [SerializeField] private float _batteryChargeAmount;
 
+    [SerializeField] private LightbulbMaterialController _lightbulbCorrectConfiguration;
+    [SerializeField] private DashboardSection _dashboardSection;
+    
+    
     private void Start()
     {
         _isPressed = new bool[_hydraulics.Length];
@@ -77,7 +79,7 @@ public class HydraulicsManager : MonoBehaviour
 
         foreach (Hydraulic hydraulic in _hydraulics.Where(h => h.IsRegulated(_slack)))
         {
-            _battery.AddCharge(_batteryChargeAmount * Time.deltaTime);
+            _battery.AddCharge(Time.deltaTime * _batteryChargeAmount);
         }
         
         _lightbulbCorrectConfiguration.Set(_hydraulics.All(h => h.IsRegulated(_slack)));
