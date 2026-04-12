@@ -15,7 +15,7 @@ namespace Modules
         [SerializeField] private SoundManager _soundManager;
 
         [SerializeField] private FadeoutController _fadeoutController;
-        
+        [SerializeField] private ScreenShaker _screenShaker;
         
         private bool _hasBeenPushed;
         
@@ -36,6 +36,7 @@ namespace Modules
             _soundManager.Play(Sound.Alarm);
             
             _fadeoutController.FadeOut();
+            _screenShaker.Shake();
         }
     }
 }
