@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Threading;
 using Input;
@@ -20,6 +19,8 @@ public class LightBulbManager : MonoBehaviour
     private Battery _battery;
     [SerializeField] private float _batterChargeAmount;
     [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private Renderer _cable;
+    [SerializeField] private CableManager _cableManager;
     
     private void Start()
     {
@@ -139,6 +140,7 @@ public class LightBulbManager : MonoBehaviour
         }
         
         _battery.AddCharge(_batterChargeAmount);
+        _cableManager.TurnOnCable(_cable, 1f);
         
         await Awaitable.WaitForSecondsAsync(_waitBetweenSequences);
         

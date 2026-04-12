@@ -12,6 +12,9 @@ namespace Modules.Conveyor
     {
         [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
         [SerializeField] private SoundManager _soundManager;
+        [SerializeField] private Renderer _cable;
+        [SerializeField] private CableManager _cableManager;
+
         [SerializeField] private Transform _itemSpawnerTransform;
         [SerializeField] private Transform _itemDestroyerTransform;
         [SerializeField] private ConveyorBelt _lowerBelt;
@@ -177,6 +180,7 @@ namespace Modules.Conveyor
                 // Fire and forget
                 activatedGrabber.StartGrab(item, _grabberSpeed);
                 _battery.AddCharge(_batteryChargeAmount);
+                _cableManager.TurnOnCable(_cable, .5f);
             }
             else
             {
