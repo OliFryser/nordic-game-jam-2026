@@ -6,5 +6,6 @@ namespace Input
         HydraulicsLeft = 1,
         HydraulicsRight = 2,
         ConveyorBelt = 3,
+        SetLights = 4,
     }
 }
