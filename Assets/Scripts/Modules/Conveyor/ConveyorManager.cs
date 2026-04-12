@@ -12,6 +12,9 @@ namespace Modules.Conveyor
     {
         [SerializeField] private EngineButtonPressEmitter _engineButtonPressEmitter;
         [SerializeField] private SoundManager _soundManager;
+        [SerializeField] private Renderer _cable;
+        [SerializeField] private CableManager _cableManager;
+
         [SerializeField] private Transform _itemSpawnerTransform;
         [SerializeField] private Transform _itemDestroyerTransform;
         [SerializeField] private ConveyorBelt _lowerBelt;

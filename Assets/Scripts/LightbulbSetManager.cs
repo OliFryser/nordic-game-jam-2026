@@ -18,6 +18,10 @@ public class LightbulbSetManager : MonoBehaviour
     [SerializeField] private float _batteryChargeAmount;
     [SerializeField] private SoundManager _soundManager;
 
+    [SerializeField] private Renderer _cable;
+    [SerializeField] private CableManager _cableManager;
+
+
     private void Start()
     {
         StartNewSet();

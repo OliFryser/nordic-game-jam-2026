@@ -15,6 +15,9 @@ public class BatteryManager : MonoBehaviour
 
     [SerializeField] private float _batteryDrainRate;
     [SerializeField] private Lever _lever;
+    [SerializeField] private CableManager _cableManager;
+    [SerializeField] private Renderer _cable1;
+    [SerializeField] private Renderer _cable2;
     
     public Battery Battery { get; private set; }
 
@@ -59,9 +62,16 @@ public class BatteryManager : MonoBehaviour
 
         if (Battery.Charge > 0.99f)
         {
+            ActivateCablesToLever();
             _lever.Push();
             ShouldDrainBattery = false;
         }
+    }
+
+    private void ActivateCablesToLever()
+    {
+        _cableManager.TurnOnCable(_cable1, 2f);
+        _cableManager.TurnOnCable(_cable2, 2f);
     }
 
     private void OnDisable()

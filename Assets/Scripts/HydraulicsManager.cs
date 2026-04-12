@@ -22,7 +22,11 @@ public class HydraulicsManager : MonoBehaviour
 
     [SerializeField] private LightbulbMaterialController _lightbulbCorrectConfiguration;
     [SerializeField] private DashboardSection _dashboardSection;
-    
+
+    [SerializeField] private Renderer _cableLeft;
+    [SerializeField] private Renderer _cableRight;
+    [SerializeField] private CableManager _cableManager;
+
     
     private void Start()
     {

@@ -5,13 +5,10 @@ public class CableManager : MonoBehaviour
    [SerializeField] private Material _cableDefaultMaterial;
    [SerializeField] private Material _cableActiveMaterial;
 
-   public void SetCableActive(Renderer cable)
+   public async void TurnOnCable(Renderer cable, float duration)
    {
       cable.material = _cableActiveMaterial;
-   }
-
-   public void SetCableDefault(Renderer cable)
-   {
+      await Awaitable.WaitForSecondsAsync(duration);
       cable.material = _cableDefaultMaterial;
    }
 
