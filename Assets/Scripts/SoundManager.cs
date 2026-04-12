@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _click1;
     [SerializeField] private AudioClip _click2;
     [SerializeField] private AudioClip _conveyorCrane;
+    [SerializeField] private AudioClip _alarm;
+    
     
     public void Play(Sound sound)
     {
@@ -16,6 +18,7 @@ public class SoundManager : MonoBehaviour
             Sound.Click1 => _click1,
             Sound.Click2 => _click2,
             Sound.ConveyorCrane => _conveyorCrane,
+            Sound.Alarm => _alarm,
             _ => throw new ArgumentOutOfRangeException(nameof(sound), sound, null)
         };
         
@@ -30,4 +33,5 @@ public enum Sound
     Click1,
     Click2,
     ConveyorCrane,
+    Alarm
 }

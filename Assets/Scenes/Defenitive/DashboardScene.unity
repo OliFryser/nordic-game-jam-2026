@@ -1958,6 +1958,7 @@ MonoBehaviour:
   _duration: 1
   _start: {fileID: 1003283300}
   _end: {fileID: 1407327259}
+  _soundManager: {fileID: 436951475}
 --- !u!4 &462594281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7976707922390961978, guid: 191a91ce29fc04276b2e1df33292926f, type: 3}
@@ -9732,6 +9733,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7374680276277663711, guid: 2e29b58ccbf9b492d89595c57d14ad57, type: 3}
+      propertyPath: _alarm
+      value: 
+      objectReference: {fileID: 8300000, guid: 97ce2a6d20b8a8d4893087a854880190, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

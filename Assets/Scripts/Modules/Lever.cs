@@ -11,7 +11,8 @@ namespace Modules
 
         [SerializeField] private Transform _start;
         [SerializeField] private Transform _end;
-
+        [SerializeField] private SoundManager _soundManager;
+        
         private bool _hasBeenPushed;
         
         public void Push()
@@ -27,6 +28,8 @@ namespace Modules
             LMotion.Create(_start.rotation, _end.rotation, _duration)
                 .WithEase(Ease.InQuint) 
                 .BindToRotation(_leverHandle);
+            
+            _soundManager.Play(Sound.Alarm);
         }
     }
 }
