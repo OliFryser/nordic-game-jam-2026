@@ -46,7 +46,6 @@ namespace Modules.Conveyor
             {
                 ConveyorGrabber grabber = _grabbers[i];
                 ConveyorItem item = _items[i];
-                //int typeIndex = i / Enum.GetValues(typeof(ConveyorItemType)).Length;
 
                 int typeIndex = i switch
                 {
@@ -108,7 +107,8 @@ namespace Modules.Conveyor
                     continue;
                 if (conveyorItem.CurrentBelt == null)
                 {
-                    conveyorItem.FallTowardsBelt(Time.deltaTime, _beltSpeed, skipSurfaceCheck: true);
+                    Debug.Log("Falling towards destroyer");
+                    conveyorItem.FallTowardsBelt(Time.deltaTime, _fallSpeed, skipSurfaceCheck: true);
                     if (conveyorItem.transform.position.y < _itemDestroyerTransform.position.y)
                     {
                         RespawnItem(conveyorItem);
@@ -131,7 +131,7 @@ namespace Modules.Conveyor
         private void RespawnItem(ConveyorItem conveyorItem)
         {
             conveyorItem.CurrentBelt = _upperBelt;
-            conveyorItem.transform.localPosition = _itemSpawnerTransform.position;
+            conveyorItem.transform.position = _itemSpawnerTransform.position;
         }
 
         private void OnEngineButtonPress(EngineButton button)
